@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-02-15T17:00:47-05:00       *-->
+<!--*       on 2022-02-15T20:21:48-05:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,9 +15,67 @@
 </head>
 <body class="ignore-math">
 <article class="example example-like"><h3 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.1</span><span class="period">.</span>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.1.6</span><span class="period">.</span>
 </h3>
-<p>The statement of the example, since it will have a solution.  What is the solution?</p>
-<div class="solutions"><a href="" class="solution-knowl original" data-knowl="./knowl/solution-1-hidden.html" title="Solution 2.2.1.1"><span class="type">Solution</span><span class="period">.</span></a></div></article><span class="incontext"><a href="sec_firstch-examples.html#example-3">in-context</a></span>
+<p>Consider the matrix</p>
+<div class="displaymath process-math">
+\begin{equation*}
+A = \begin{bmatrix}
+1 \amp -1 \amp 1 \amp -2 \\
+3 \amp  1 \amp 7 \amp  2 \\
+2 \amp  0 \amp 4 \amp  0
+\end{bmatrix}.
+\end{equation*}
+</div>
+<p>We have</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\rref [A \mid I_3] =
+\left[\begin{array}{rrrr|rrr}
+1 \amp 0 \amp 2 \amp 0 \amp 0 \amp 0 \amp \frac{1}{2} \\
+0 \amp 1 \amp 1 \amp 2 \amp 0 \amp 1 \amp -\frac{3}{2} \\ \hline
+0 \amp 0 \amp 0 \amp 0 \amp 1 \amp 1 \amp -2
+\end{array}\right]
+\end{equation*}
+</div>
+<p class="continuation">and</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\rref[A^\top | I_4] =
+\left[\begin{array}{rrr|rrrr}
+1 \amp 0 \amp \frac{1}{2} \amp 0 \amp 0 \amp \frac{1}{8} \amp -\frac{7}{16} \\
+0 \amp 1 \amp \frac{1}{2} \amp 0 \amp 0 \amp \frac{1}{8} \amp \frac{1}{16} \\
+\hline
+0 \amp 0 \amp 0 \amp 1 \amp 0 \amp -\frac{1}{2} \amp \frac{1}{4} \\
+0 \amp 0 \amp 0 \amp 0 \amp 1 \amp 0 \amp -\frac{1}{2}
+\end{array}\right]
+\end{equation*}
+</div>
+<p>Using <a href="" class="xref" data-knowl="./knowl/thm-extended-rref-subspaces.html" title="Theorem 1.1.5: Extended echelon form and the four fundamental subspaces">Theorem 1.1.5</a>, we have</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\col A =
+\sp\left\{
+\begin{bmatrix} 1 \\ 0 \\ 1/2 \end{bmatrix},
+\begin{bmatrix} 0 \\ 1 \\ 1/2 \end{bmatrix},
+\right\}
+= \ker \begin{bmatrix} 1 \amp 1 \amp -2 \end{bmatrix}
+\end{equation*}
+</div>
+<p class="continuation">and</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\ker A =
+\sp\left\{
+\begin{bmatrix} 1 \\ 0 \\ -1/2 \\ 1/4 \end{bmatrix},
+\begin{bmatrix} 0 \\ 1 \\ 0 \\ -1/2 \end{bmatrix}
+\right\}
+= \ker
+\begin{bmatrix}
+1 \amp 0 \amp 2 \amp 0 \\
+0 \amp 1 \amp 1 \amp 2
+\end{bmatrix}
+\end{equation*}
+</div></article><span class="incontext"><a href="sec-extended-rref.html#example-3">in-context</a></span>
 </body>
 </html>

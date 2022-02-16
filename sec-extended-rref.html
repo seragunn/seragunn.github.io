@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-02-15T17:00:47-05:00       *-->
+<!--*       on 2022-02-15T20:21:48-05:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -78,7 +78,11 @@
 \newcommand{\Z}{\mathbf Z}
 \newcommand{\Q}{\mathbf Q}
 \newcommand{\R}{\mathbf R}
+
 \DeclareMathOperator{\rref}{rref}
+\DeclareMathOperator{\col}{col}
+\DeclareMathOperator{\row}{row}
+\DeclareMathOperator{\sp}{span}
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
 \newcommand{\amp}{&amp;}
@@ -155,7 +159,7 @@ A^{-} = \begin{bmatrix} 0 \amp 1/3 \\ 1 \amp -1/3 \end{bmatrix}
 <p id="p-10">In the Sage cell, there is also a vertical subdivision seperating the row of zeros in <span class="process-math">\(\rref(A)\text{.}\)</span> More on that later.</p></article><article class="definition definition-like" id="definition-1"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.1.2</span><span class="period">.</span>
 </h3>
-<p id="p-11">Let us call the matrix <span class="process-math">\(A^{-}\)</span> for which <span class="process-math">\(A^{-} A = \rref(A)\text{,}\)</span> a <em class="emphasis">left quasi-inverse</em>. These are not unique if <span class="process-math">\(A\)</span> is singular as the next example illustrates.</p></article><article class="example example-like" id="example-2"><h3 class="heading">
+<p id="p-11">Let us call the matrix <span class="process-math">\(A^{-}\)</span> for which <span class="process-math">\(A^{-} A = \rref(A)\text{,}\)</span> a <em class="emphasis">left quasi-inverse</em>. These are not unique if <span class="process-math">\(A\)</span> is singular as the next example illustrates.</p></article><article class="example example-like" id="ex-sym-rowred"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">1.1.3</span><span class="period">.</span><span class="space"> </span><span class="title">Symbolic row reduction.</span>
 </h3>
 <p id="p-12">Suppose we take our matrix <span class="process-math">\(A\)</span> as before, but this time we augment with the vector <span class="process-math">\(v = (x, y) \in \Q[x,y]\text{.}\)</span> In this case, we get</p>
@@ -183,7 +187,150 @@ A.echelon_form() # note: A.rref() computes the echelon form over Frac(R)
 \end{bmatrix}
 \end{equation*}
 </div>
-<p class="continuation">is again a left quasi-inverse. It differs from our previous <span class="process-math">\(A^{-}\)</span> by a couple row operations that do not affect the identity <span class="process-math">\(A^-A = \rref A\text{.}\)</span></p></article></section></div></main>
+<p class="continuation">is again a left quasi-inverse. It differs from our previous <span class="process-math">\(A^{-}\)</span> by a couple row operations that do not affect the identity <span class="process-math">\(A^-A = \rref A\text{.}\)</span></p></article><p id="p-14">We know that a vector <span class="process-math">\(y = (y_1, y_2, \dots, y_m)\)</span> is in the column space of <span class="process-math">\(A\)</span> if and only if whenever the left side of <span class="process-math">\(\rref [A \mid y]\)</span> is zero, the right side is also zero. If we now treat <span class="process-math">\(y_1, \dots, y_m\)</span> as indeterminates, this gives us a list of equations that must be satisfied in order for <span class="process-math">\(y \in \col(A)\text{.}\)</span> Let us now summarize.</p>
+<article class="theorem theorem-like" id="thm-col-as-ker"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.1.4</span><span class="period">.</span><span class="space"> </span><span class="title">Equations for <span class="process-math">\(\col(A)\)</span>.</span>
+</h3>
+<p id="p-15">Let <span class="process-math">\(A\)</span> be a <span class="process-math">\(m \times n\)</span> matrix. Suppose that <span class="process-math">\(\rref [A \mid I_m]\)</span> has the form</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\left[
+\begin{array}{c|c}
+A_{0,0} \amp A_{0,1} \\ \hline
+0_{r \times n} \amp A_{1,1}
+\end{array}
+\right]
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(A_{0,0}\)</span> is full-rank (has no row of zeros). Then <span class="process-math">\(\col(A) = \ker(A_{1,1})\text{.}\)</span></p></article><article class="hiddenproof" id="proof-1"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-1"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-1"><article class="hiddenproof"><p id="p-16">Let <span class="process-math">\(A^{-} = \begin{bmatrix} A_{0,1} \\ A_{1,1} \end{bmatrix}\)</span> be the left quasi-inverse associated with this echelon form.</p>
+<p id="p-17">As we saw in <a href="" class="xref" data-knowl="./knowl/ex-sym-rowred.html" title="Example 1.1.3: Symbolic row reduction">Example 1.1.3</a>, if <span class="process-math">\(y = (y_1,\dots,y_m)\)</span> is a vector in <span class="process-math">\(\R^m\)</span> then</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\rref [A \mid y] = A^{-} [A \mid y] =
+\left[
+\begin{array}{c|c}
+A_{0,0} \amp A_{0,1}y \\ \hline
+0_{r \times n} \amp A_{1,1}y
+\end{array}
+\right].
+\end{equation*}
+</div>
+<p class="continuation">Since <span class="process-math">\(A_{0,0}\)</span> is full-rank, this linear system is consistant if and only if <span class="process-math">\(A_{1,1}y = 0\text{.}\)</span></p></article></div>
+<p id="p-18">Recall that for any matrix <span class="process-math">\(X\text{,}\)</span> the spaces <span class="process-math">\(\ker(X)\)</span> and <span class="process-math">\(\row(X)\)</span> are orthogonal complements. We will use this in the next theorem.</p>
+<article class="theorem theorem-like" id="thm-extended-rref-subspaces"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.1.5</span><span class="period">.</span><span class="space"> </span><span class="title">Extended echelon form and the four fundamental subspaces.</span>
+</h3>
+<p id="p-19">Let <span class="process-math">\(A\)</span> be a <span class="process-math">\(m \times n\)</span> matrix. Write</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\rref [A \mid I_m] =
+\left[
+\begin{array}{c|c}
+A_{0,0} \amp A_{0,1} \\ \hline
+0_{r \times n} \amp A_{1,1}
+\end{array}
+\right]
+\text{ and }
+\rref [A^\top \mid I_n] =
+\left[
+\begin{array}{c|c}
+B_{0,0} \amp B_{0,1} \\ \hline
+0_{s \times m} \amp B_{1,1}
+\end{array}
+\right]
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(A_{0,0}\)</span> is full-rank (has no row of zeros).</p>
+<p id="p-20">Then:</p>
+<ul class="disc">
+<li id="li-1"><p id="p-derived-li-1"><span class="process-math">\(\displaystyle \ker A = \row B_{1,1} = \ker A_{0,0}\)</span></p></li>
+<li id="li-2"><p id="p-derived-li-2"><span class="process-math">\(\displaystyle \col A = \row B_{0,0} = \ker A_{1,1}\)</span></p></li>
+<li id="li-3"><p id="p-derived-li-3"><span class="process-math">\(\displaystyle \ker A^\top = \row A_{1,1} = \ker B_{0,0}\)</span></p></li>
+<li id="li-4"><p id="p-derived-li-4"><span class="process-math">\(\displaystyle \row A = \row A_{0,0} = \ker B_{1,1}\)</span></p></li>
+</ul></article><article class="hiddenproof" id="proof-2"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-2"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-2"><article class="hiddenproof"><p id="p-21">It is a basic property of <span class="process-math">\(A_{0,0}\)</span> that <span class="process-math">\(\row A_{0,0} = \row A\)</span> and <span class="process-math">\(\ker A_{0,0} = \ker A\text{.}\)</span> Likewise, <span class="process-math">\(\row B_{0,0} = \col A\)</span> and <span class="process-math">\(\ker B_{0,0} = \ker A^\top\text{.}\)</span></p>
+<p id="p-22">By <a href="" class="xref" data-knowl="./knowl/thm-col-as-ker.html" title="Theorem 1.1.4: Equations for \col(A)">Theorem 1.1.4</a>, we also have <span class="process-math">\(\ker A_{1,1} = \col A\)</span> and <span class="process-math">\(\ker B_{1,1} = \row A\text{.}\)</span></p>
+<p id="p-23">Lastly, by orthogonality,</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\row B_{1,1} \perp \ker B_{1,1} = \row A \perp \ker A
+\end{equation*}
+</div>
+<p class="continuation">So <span class="process-math">\(\row B_{1,1} = \ker A\)</span> and similarly, <span class="process-math">\(\row A_{1,1} = \ker A^\top\text{.}\)</span></p></article></div>
+<p id="p-24">This theorem gives us two ways to write each of the four fundamental subspaces of <span class="process-math">\(A\text{.}\)</span> First, we can write each subspace as the row space (span) of a matrix in echelon form. Second, we can write each subspace as the kernel (null space) of a matrix in echelon form.</p>
+<article class="example example-like" id="example-3"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.1.6</span><span class="period">.</span>
+</h3>
+<p id="p-25">Consider the matrix</p>
+<div class="displaymath process-math">
+\begin{equation*}
+A = \begin{bmatrix}
+1 \amp -1 \amp 1 \amp -2 \\
+3 \amp  1 \amp 7 \amp  2 \\
+2 \amp  0 \amp 4 \amp  0
+\end{bmatrix}.
+\end{equation*}
+</div>
+<p id="p-26">We have</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\rref [A \mid I_3] =
+\left[\begin{array}{rrrr|rrr}
+1 \amp 0 \amp 2 \amp 0 \amp 0 \amp 0 \amp \frac{1}{2} \\
+0 \amp 1 \amp 1 \amp 2 \amp 0 \amp 1 \amp -\frac{3}{2} \\ \hline
+0 \amp 0 \amp 0 \amp 0 \amp 1 \amp 1 \amp -2
+\end{array}\right]
+\end{equation*}
+</div>
+<p class="continuation">and</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\rref[A^\top | I_4] =
+\left[\begin{array}{rrr|rrrr}
+1 \amp 0 \amp \frac{1}{2} \amp 0 \amp 0 \amp \frac{1}{8} \amp -\frac{7}{16} \\
+0 \amp 1 \amp \frac{1}{2} \amp 0 \amp 0 \amp \frac{1}{8} \amp \frac{1}{16} \\
+\hline
+0 \amp 0 \amp 0 \amp 1 \amp 0 \amp -\frac{1}{2} \amp \frac{1}{4} \\
+0 \amp 0 \amp 0 \amp 0 \amp 1 \amp 0 \amp -\frac{1}{2}
+\end{array}\right]
+\end{equation*}
+</div>
+<p id="p-27">Using <a href="" class="xref" data-knowl="./knowl/thm-extended-rref-subspaces.html" title="Theorem 1.1.5: Extended echelon form and the four fundamental subspaces">Theorem 1.1.5</a>, we have</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\col A =
+\sp\left\{
+\begin{bmatrix} 1 \\ 0 \\ 1/2 \end{bmatrix},
+\begin{bmatrix} 0 \\ 1 \\ 1/2 \end{bmatrix},
+\right\}
+= \ker \begin{bmatrix} 1 \amp 1 \amp -2 \end{bmatrix}
+\end{equation*}
+</div>
+<p class="continuation">and</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\ker A =
+\sp\left\{
+\begin{bmatrix} 1 \\ 0 \\ -1/2 \\ 1/4 \end{bmatrix},
+\begin{bmatrix} 0 \\ 1 \\ 0 \\ -1/2 \end{bmatrix}
+\right\}
+= \ker
+\begin{bmatrix}
+1 \amp 0 \amp 2 \amp 0 \\
+0 \amp 1 \amp 1 \amp 2
+\end{bmatrix}
+\end{equation*}
+</div></article><div class="sagecell-sage" id="sage-3"><script type="text/x-sage">A = matrix(QQ, [[1, -1, 1, -2], [3, 1, 7, 2], [2, 0, 4, 0]])
+print("rref[A|I] =")
+print(A.extended_echelon_form(True))
+print("rref[A^T|I] =")
+print(A.T.extended_echelon_form(True))
+print("ker A =")
+print(A.right_kernel())
+print("col A =")
+print(A.column_space())
+</script></div>
+<p id="p-28">A mnemonic of sorts is that <span class="process-math">\(\rref[A \mid I]\)</span> gives parametric representations of <span class="process-math">\(\row A\)</span> and <span class="process-math">\(\ker A^\top = (\col A)^\perp\)</span> and implicit equations for <span class="process-math">\(\ker A\)</span> and <span class="process-math">\(\col A\text{.}\)</span></p>
+<p id="p-29">Of course, one only needs to remember half of that in order to piece together the other half. From that, one also can piece together the same thing for <span class="process-math">\(\rref [A^\top \mid I]\text{.}\)</span> So one only needs to remember two things in order to be able to recall all eight statements from <a href="" class="xref" data-knowl="./knowl/thm-extended-rref-subspaces.html" title="Theorem 1.1.5: Extended echelon form and the four fundamental subspaces">Theorem 1.1.5</a>.</p></section></div></main>
 </div>
 </body>
 </html>
