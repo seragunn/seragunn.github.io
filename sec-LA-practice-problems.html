@@ -11,7 +11,7 @@
 <html lang="en-US">
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Algebra</title>
+<title>Linear Algebra Problem Generator</title>
 <meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:type" content="book">
@@ -95,10 +95,10 @@
 </div></div>
 <nav id="primary-navbar" class="navbar"><div class="container">
 <div class="navbar-top-buttons">
-<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="acknowledgement.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="methods-and-examples-in-combalg.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="sec-extended-rref.html" title="Next">Next</a></span></div>
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec-extended-rref.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="ch-algebra.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="ch-combinatorics.html" title="Next">Next</a></span></div>
 </div>
 <div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
-<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="acknowledgement.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="methods-and-examples-in-combalg.html" title="Up">Up</a><a class="next-button button toolbar-item" href="sec-extended-rref.html" title="Next">Next</a>
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec-extended-rref.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="ch-algebra.html" title="Up">Up</a><a class="next-button button toolbar-item" href="ch-combinatorics.html" title="Next">Next</a>
 </div>
 </div></nav></header><div class="page">
 <div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
@@ -110,10 +110,10 @@
 <li><a href="acknowledgement.html" data-scroll="acknowledgement" class="internal">Acknowledgements</a></li>
 </ul>
 </li>
-<li class="link active">
+<li class="link">
 <a href="ch-algebra.html" data-scroll="ch-algebra" class="internal"><span class="codenumber">1</span> <span class="title">Algebra</span></a><ul>
 <li><a href="sec-extended-rref.html" data-scroll="sec-extended-rref" class="internal">The extended echelon form of a matrix</a></li>
-<li><a href="sec-LA-practice-problems.html" data-scroll="sec-LA-practice-problems" class="internal">Linear Algebra Problem Generator</a></li>
+<li><a href="sec-LA-practice-problems.html" data-scroll="sec-LA-practice-problems" class="active">Linear Algebra Problem Generator</a></li>
 </ul>
 </li>
 <li class="link">
@@ -121,13 +121,69 @@
 </li>
 </ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
-<main class="main"><div id="content" class="pretext-content"><section class="chapter" id="ch-algebra"><h2 class="heading">
-<span class="type">Chapter</span> <span class="codenumber">1</span> <span class="title">Algebra</span>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="sec-LA-practice-problems"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">1.2</span> <span class="title">Linear Algebra Problem Generator</span>
 </h2>
-<section class="introduction" id="introduction-1"><p id="p-5">Examples from algebra</p></section><nav class="summary-links"><ul>
-<li><a href="sec-extended-rref.html" class="internal"><span class="codenumber">1.1</span> <span class="title">The extended echelon form of a matrix</span></a></li>
-<li><a href="sec-LA-practice-problems.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Linear Algebra Problem Generator</span></a></li>
-</ul></nav></section></div></main>
+<article class="example example-like" id="example-4"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.2.1</span><span class="period">.</span><span class="space"> </span><span class="title">Random <span class="process-math">\(2 \times 2\)</span> system.</span>
+</h3>
+<div class="sagecell-sage" id="sage-4"><script type="text/x-sage">var("x, y")
+A = random_matrix(ZZ, 2, algorithm="echelonizable", rank=2, upper_bound=10)
+v = random_vector(ZZ, 2)
+b = A * v
+
+print("Equations:")
+for i in range(2):
+    print(f"{(A*v)[i]} = {b[i]}")
+
+print("\nSolution:")
+print(f"(x, y) = {v}")
+</script></div></article><article class="example example-like" id="example-5"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.2.2</span><span class="period">.</span><span class="space"> </span><span class="title">Random <span class="process-math">\(3 \times 3\)</span> system.</span>
+</h3>
+<div class="sagecell-sage" id="sage-5"><script type="text/x-sage">var("x, y, z")
+# feel free to change the rank to 2
+A = random_matrix(ZZ, 3, algorithm="echelonizable", rank=3, upper_bound=10)
+# we randomize v rather than b to control how large the solution is
+v = random_vector(ZZ, 3)
+b = A * v
+
+print("Equations:")
+for i in range(3):
+    print(f"{(A*v)[i]} = {b[i]}")
+
+print("\nSolution:")
+print(f"(x, y, z) = {v}")
+</script></div></article><article class="example example-like" id="example-6"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.2.3</span><span class="period">.</span><span class="space"> </span><span class="title">Random kernel.</span>
+</h3>
+<div class="sagecell-sage" id="sage-6"><script type="text/x-sage">m = 3
+n = 4
+rank = 2
+A = random_matrix(ZZ, m, n, algorithm="echelonizable", rank=rank, upper_bound=10)
+
+print(f"A =\n{A}\n\nrref(A) =\n{A.rref()}\n\nker(A) =\n{A.right_kernel()}")
+</script></div>
+<p id="p-30">Note: gives kernel as rows</p>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-1" id="solution-1"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-1"><div class="solution solution-like"><div class="hidden-sagecell-sage" id="sage-7"><script type="text/x-sage"># Test if given vectors is a basis for col(A)
+test = (ZZ^n).submodule([[1, 0, 0, 0], [0, 1, 0, 0]])
+test == A.right_kernel()
+</script></div></div></div></article><article class="example example-like" id="example-7"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.2.4</span><span class="period">.</span><span class="space"> </span><span class="title">Random column space.</span>
+</h3>
+<div class="sagecell-sage" id="sage-8"><script type="text/x-sage">m = 3
+n = 4
+rank = 2
+A = random_matrix(ZZ, m, n, algorithm="echelonizable", rank=rank, upper_bound=10)
+A = A.change_ring(QQ)
+
+print(f"A =\n{A}\n\nrref(A) =\n{A.rref()}\n\ncol(A) =\n{A.column_space()}")
+</script></div>
+<p id="p-31">Note: gives column space as rows</p>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-2" id="solution-2"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-2"><div class="solution solution-like"><div class="hidden-sagecell-sage" id="sage-9"><script type="text/x-sage"># Test if given vectors is a basis for col(A)
+test = (ZZ^m).submodule([[1, 0, 0], [0, 1, 0]])
+test == A.column_space()
+</script></div></div></div></article></section></div></main>
 </div>
 </body>
 </html>
