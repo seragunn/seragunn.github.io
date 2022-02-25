@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-02-24T23:58:38-05:00       *-->
+<!--*       on 2022-02-25T10:15:36-05:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -273,17 +273,18 @@ V_i \cdot V_i = - \val(v_i)
 \end{equation*}
 </div>
 <p class="continuation">where valence of a vertex is the number of neighbours.</p>
-<p id="p-129">We point the reader to <a href="" class="xref" data-knowl="./knowl/L.html" title="Bibliographic Entry 3.2.3.2: Algebraic Geometry and Arithmetic Curves">[3.2.3.2]</a> (Chapter 9) for further explanation. The takeaway here is that divisors supported on <span class="process-math">\(\X_k\)</span> always map to principal divisors in <span class="process-math">\(G\text{.}\)</span></p>
+<p id="p-129">The reason why this self-intersection number is what it is is because the total degree needs to be <span class="process-math">\(0\text{.}\)</span> Many self-intersection problems are computed this way. For instance, in the plane, two lines intersect in a single point. So <span class="process-math">\(\ell \cdot \ell = 1\text{.}\)</span> But now if we blow up the point of intersection, the class <span class="process-math">\(\ell\)</span> becomes <span class="process-math">\(\ell + E\)</span>—an exceptional divisor. And here we still have <span class="process-math">\((\ell + E)(\ell + E) = 1\)</span> except now <span class="process-math">\(\ell\)</span> and <span class="process-math">\(\ell\)</span> do not intersect but <span class="process-math">\(\ell \cdot E = 1\)</span> and in order to make the equation come out right, <span class="process-math">\(E \cdot E = -1\text{.}\)</span></p>
+<p id="p-130">We point the reader to <a href="" class="xref" data-knowl="./knowl/L.html" title="Bibliographic Entry 3.2.4.2: Algebraic Geometry and Arithmetic Curves">[3.2.4.2]</a> (Chapter 9) for further explanation. The takeaway here is that divisors supported on <span class="process-math">\(\X_k\)</span> always map to principal divisors in <span class="process-math">\(G\text{.}\)</span></p>
 <article class="remark remark-like" id="remark-10"><h4 class="heading">
 <span class="type">Remark</span><span class="space"> </span><span class="codenumber">3.2.14</span><span class="period">.</span>
 </h4>
-<p id="p-130">Now it's not true that elements of <span class="process-math">\(\Prin(X)\)</span> remain principal in <span class="process-math">\(\X\text{.}\)</span> However, as we have seen just above, the part of <span class="process-math">\(\divisor(f)\)</span> which is supported on <span class="process-math">\(\X_k\)</span> specializes to a principal divisor on <span class="process-math">\(G\text{.}\)</span></p>
-<p id="p-131">So if we start with a divisor <span class="process-math">\(\divisor(f)\)</span> on <span class="process-math">\(X\)</span> and take the closure in <span class="process-math">\(\X\text{,}\)</span> the result differs from a principal divisor on <span class="process-math">\(\X\)</span> by a divisor supported in <span class="process-math">\(\X_k\text{.}\)</span></p>
-<p id="p-132">Now two facts are true: first if <span class="process-math">\(\mathscr D\)</span> is a principal divisor on <span class="process-math">\(\X\)</span> then <span class="process-math">\(\O(\mathscr D) \cong \O\)</span> so <span class="process-math">\(\rho(\mathscr D) = 0\)</span> by definition. Second, if <span class="process-math">\(D \in \Prin(X)\)</span> then <span class="process-math">\(\rho(D)\)</span> differs from <span class="process-math">\(\rho(\mathscr D) = 0\)</span> by <span class="process-math">\(\rho(\mathscr D|_{\X_k}) \in \Prin(G)\text{.}\)</span></p></article><p id="p-133">Let's summarize what we have so far.</p>
+<p id="p-131">Now it's not true that elements of <span class="process-math">\(\Prin(X)\)</span> remain principal in <span class="process-math">\(\X\text{.}\)</span> However, as we have seen just above, the part of <span class="process-math">\(\divisor(f)\)</span> which is supported on <span class="process-math">\(\X_k\)</span> specializes to a principal divisor on <span class="process-math">\(G\text{.}\)</span></p>
+<p id="p-132">So if we start with a divisor <span class="process-math">\(\divisor(f)\)</span> on <span class="process-math">\(X\)</span> and take the closure in <span class="process-math">\(\X\text{,}\)</span> the result differs from a principal divisor on <span class="process-math">\(\X\)</span> by a divisor supported in <span class="process-math">\(\X_k\text{.}\)</span></p>
+<p id="p-133">Now two facts are true: first if <span class="process-math">\(\mathscr D\)</span> is a principal divisor on <span class="process-math">\(\X\)</span> then <span class="process-math">\(\O(\mathscr D) \cong \O\)</span> so <span class="process-math">\(\rho(\mathscr D) = 0\)</span> by definition. Second, if <span class="process-math">\(D \in \Prin(X)\)</span> then <span class="process-math">\(\rho(D)\)</span> differs from <span class="process-math">\(\rho(\mathscr D) = 0\)</span> by <span class="process-math">\(\rho(\mathscr D|_{\X_k}) \in \Prin(G)\text{.}\)</span></p></article><p id="p-134">Let's summarize what we have so far.</p>
 <article class="theorem theorem-like" id="theorem-4"><h4 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.2.15</span><span class="period">.</span><span class="space"> </span><span class="title">Specialization of divisors to graphs.</span>
 </h4>
-<p id="p-134">With the notation as before, there is a well defined map</p>
+<p id="p-135">With the notation as before, there is a well defined map</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \rho : \Div(X) \to \Div(G)
@@ -292,34 +293,65 @@ V_i \cdot V_i = - \val(v_i)
 <p class="continuation">taking principal divisors to principal divisors.</p></article><article class="remark remark-like" id="remark-11"><h4 class="heading">
 <span class="type">Remark</span><span class="space"> </span><span class="codenumber">3.2.16</span><span class="period">.</span>
 </h4>
-<p id="p-135">There are three problems with all of this.</p>
+<p id="p-136">There are three problems with all of this.</p>
 <ol class="decimal">
 <li id="li-11"><p id="p-derived-li-11">We started with metric graphs but this whole last section was about non-metric graphs</p></li>
 <li id="li-12"><p id="p-derived-li-12">We have restricted ourselves to DVRs</p></li>
 <li id="li-13"><p id="p-derived-li-13">This construction is not functorial with respect to base change (next example)</p></li>
 </ol>
-<p id="p-136">All of this is fixed by looking at Berkovich spaces.</p></article><article class="example example-like" id="example-17"><h4 class="heading">
+<p id="p-137">All of this is fixed by looking at Berkovich spaces.</p></article><article class="example example-like" id="example-17"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.2.17</span><span class="period">.</span>
 </h4>
-<p id="p-137">Let <span class="process-math">\(K = \C((t))\)</span> and <span class="process-math">\(\X\)</span> be the projective curve defined by <span class="process-math">\(xy = tz^2\text{.}\)</span> This is a smooth conic which degenerates to the pair of lines <span class="process-math">\(V : x = 0\)</span> and <span class="process-math">\(W : y = 0\text{.}\)</span> So the dual graph consists of a single edge <span class="process-math">\(v \sim w\text{.}\)</span></p>
-<p id="p-138">Let <span class="process-math">\(D = P + Q\)</span> with</p>
+<p id="p-138">Let <span class="process-math">\(K = \C((t))\)</span> and <span class="process-math">\(\X\)</span> be the projective curve defined by <span class="process-math">\(xy = tz^2\text{.}\)</span> This is a smooth conic which degenerates to the pair of lines <span class="process-math">\(V : x = 0\)</span> and <span class="process-math">\(W : y = 0\text{.}\)</span> So the dual graph consists of a single edge <span class="process-math">\(v \sim w\text{.}\)</span></p>
+<p id="p-139">Let <span class="process-math">\(D = P + Q\)</span> with</p>
 <div class="displaymath process-math">
 \begin{equation*}
 P = (\sqrt t : \sqrt t : 1) \text{ and } Q = (-\sqrt t : - \sqrt t : 1).
 \end{equation*}
 </div>
 <p class="continuation">Then as <span class="process-math">\(t \to \infty\text{,}\)</span> both <span class="process-math">\(P\)</span> and <span class="process-math">\(Q\)</span> converge to the node <span class="process-math">\((0:0:1)\text{.}\)</span></p>
-<p id="p-139">If we look at the solutions to <span class="process-math">\(x = y\)</span> in <span class="process-math">\(\X\)</span> these are exactly <span class="process-math">\(P + Q\)</span> and we also have a couple of poles at infinity <span class="process-math">\((1:0:0) + (0:1:0)\text{.}\)</span> Or in other words,</p>
+<p id="p-140">If we look at the solutions to <span class="process-math">\(x = y\)</span> in <span class="process-math">\(\X\)</span> these are exactly <span class="process-math">\(P + Q\)</span> and we also have a couple of poles at infinity <span class="process-math">\((1:0:0) + (0:1:0)\text{.}\)</span> Or in other words,</p>
 <div class="displaymath process-math">
 \begin{equation*}
 P + Q - (1:0:0) - (0:1:0) = \div(x - y)
 \end{equation*}
 </div>
 <p class="continuation">So <span class="process-math">\(P + Q \sim (1:0:0) + (0:1:0)\)</span> and consequentially <span class="process-math">\(\rho(P + Q) = v + w\text{.}\)</span></p>
-<p id="p-140">On the other hand, if we base change to <span class="process-math">\(\C((t^{\frac12}))\)</span> then we have to blow up at <span class="process-math">\(x = y = 0\)</span> to regularize and this adds a new component <span class="process-math">\(U\)</span> to <span class="process-math">\(\X'_k\)</span> sitting exactly halfway between <span class="process-math">\(v\)</span> and <span class="process-math">\(w\text{.}\)</span> Now <span class="process-math">\(\rho(P + Q) = 2u\text{,}\)</span> and while this is linearly equivalent to <span class="process-math">\(v + w\text{,}\)</span> the map <span class="process-math">\(\rho\)</span> has changed on the level of <span class="process-math">\(\Div(X)\text{.}\)</span></p>
-<p id="p-141">Note that <span class="process-math">\(x - y\)</span> vanishes along this exceptional divisor and both <span class="process-math">\(P\)</span> and <span class="process-math">\(Q\)</span> degenerate to <span class="process-math">\(U\text{.}\)</span></p>
-<div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/latex-image/tikz-base-change-not-functorial.svg" role="img" class="contained" alt="Blow-up of \(\X_k\)"></div></article></section><section class="references" id="references-1"><h3 class="heading hide-type">
-<span class="type">References</span> <span class="codenumber">3.2.3</span> <span class="title">References</span>
+<p id="p-141">On the other hand, if we base change to <span class="process-math">\(\C((t^{\frac12}))\)</span> then we have to blow up at <span class="process-math">\(x = y = 0\)</span> to regularize and this adds a new component <span class="process-math">\(U\)</span> to <span class="process-math">\(\X'_k\)</span> sitting exactly halfway between <span class="process-math">\(v\)</span> and <span class="process-math">\(w\text{.}\)</span> Now <span class="process-math">\(\rho(P + Q) = 2u\text{,}\)</span> and while this is linearly equivalent to <span class="process-math">\(v + w\text{,}\)</span> the map <span class="process-math">\(\rho\)</span> has changed on the level of <span class="process-math">\(\Div(X)\text{.}\)</span></p>
+<p id="p-142">Note that <span class="process-math">\(x - y\)</span> vanishes along this exceptional divisor and both <span class="process-math">\(P\)</span> and <span class="process-math">\(Q\)</span> degenerate to <span class="process-math">\(U\text{.}\)</span></p>
+<div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/latex-image/tikz-base-change-not-functorial.svg" role="img" class="contained" alt="Blow-up of \(\X_k\)"></div></article></section><section class="subsection" id="ss-baker-specialization"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">3.2.3</span> <span class="title">The Baker Specialization Lemma</span>
+</h3>
+<p id="p-143">First we need a definition of <span class="process-math">\(r(D) = \dim \L(D) - 1\)</span> that can be made sense of if <span class="process-math">\(D\)</span> is a tropical divisor.</p>
+<article class="definition definition-like" id="definition-14"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.2.18</span><span class="period">.</span>
+</h4>
+<p id="p-144">If <span class="process-math">\(D\)</span> is a divisor (tropical or algebraic), then recall that <span class="process-math">\(|D| = \{E \ge 0 : E \sim D\}\text{.}\)</span> We define <span class="process-math">\(r(D) = -1\)</span> if <span class="process-math">\(|D| = \varnothing\)</span> and otherwise</p>
+<div class="displaymath process-math">
+\begin{equation*}
+r(D) =           
+\max\{k : |D - E| \ne \varnothing, \text{ for all } E \in \Div_+^k(X)\}.
+\end{equation*}
+</div>
+<p class="continuation">(<span class="process-math">\(\Div_+^k(X) = \)</span> effective and degree <span class="process-math">\(k\text{.}\)</span>)</p>
+<p id="p-145">This definition works the same if we replace <span class="process-math">\(X\)</span> by <span class="process-math">\(G\)</span> or <span class="process-math">\(\Gamma\text{.}\)</span></p></article><article class="theorem theorem-like" id="thm-rank-comparison"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.2.19</span><span class="period">.</span><span class="space"> </span><span class="title">Relation to the previous definition.</span>
+</h4>
+<p id="p-146">The number <span class="process-math">\(r(D)\)</span> we defined is equal to <span class="process-math">\(\dim \L(D) - 1\)</span> for algebraic curves.</p></article><article class="hiddenproof" id="proof-5"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-5"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-5"><article class="hiddenproof">See e.g. <a href="" class="xref" data-knowl="./knowl/B.html" title="Bibliographic Entry 3.2.4.1: Specialization of linear systems from curves to graphs">[3.2.4.1]</a> Lemma 2.4.</article></div>
+<article class="theorem theorem-like" id="thm-rank-properties"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.2.20</span><span class="period">.</span>
+</h4>
+<p id="p-147">For every point <span class="process-math">\(P\text{,}\)</span> we have <span class="process-math">\(r(D - P) \ge r(D) - 1\)</span> and moreover there exists a point <span class="process-math">\(P\)</span> for which <span class="process-math">\(r(D - P) = r(D) - 1\text{.}\)</span></p></article><article class="hiddenproof" id="proof-6"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-6"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-6"><article class="hiddenproof"><p id="p-148">Let <span class="process-math">\(r = r(D)\text{.}\)</span> If <span class="process-math">\(r(D) \le 0\)</span> then this is evident.</p>
+<p id="p-149">Now suppose <span class="process-math">\(E = P_1 + P_2 + \dots + P_r\)</span> is any rank <span class="process-math">\(k\)</span> divisor then <span class="process-math">\(|D - P_1 - \dots - P_r| \neq \varnothing\)</span> by definition. It follows that <span class="process-math">\(r(D - P_1) \ge r - 1\)</span> for any point <span class="process-math">\(P_1\)</span> since <span class="process-math">\(P_2, \dots, P_r\)</span> are arbitrary.</p>
+<p id="p-150">Now suppose <span class="process-math">\(E = P_1 + \dots + P_r\)</span> is the divisor that achieves the maximum. Then <span class="process-math">\(r(D - P_1) = r - 1\)</span> since otherwise we could do better than <span class="process-math">\(E\text{.}\)</span></p></article></div>
+<p id="p-151">The proof of <a href="" class="xref" data-knowl="./knowl/thm-rank-comparison.html" title="Theorem 3.2.19: Relation to the previous definition">Theorem 3.2.19</a> consists of showing the hypothesis for <a href="" class="xref" data-knowl="./knowl/thm-rank-properties.html" title="Theorem 3.2.20">Theorem 3.2.20</a> and applying induction. We end with a proof of Baker's Lemma <a href="" class="xref" data-knowl="./knowl/B.html" title="Bibliographic Entry 3.2.4.1: Specialization of linear systems from curves to graphs">[3.2.4.1]</a>.</p>
+<article class="theorem theorem-like" id="theorem-7"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.2.21</span><span class="period">.</span><span class="space"> </span><span class="title">Baker's Specialization Lemma.</span>
+</h4>
+<p id="p-152">We have <span class="process-math">\(r_{G}(\rho(D)) \ge r_X(D)\)</span> for any divisor <span class="process-math">\(D\)</span> on <span class="process-math">\(X\text{.}\)</span></p></article><article class="hiddenproof" id="proof-7"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-7"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-7"><article class="hiddenproof"><p id="p-153">Let <span class="process-math">\(\bar D = \rho(D)\text{.}\)</span> We will show by induction that if <span class="process-math">\(r_X(D) \ge r\)</span> then <span class="process-math">\(r_G(\bar D) \ge r\)</span> as well. The base case, <span class="process-math">\(r = -1\)</span> is clear.</p>
+<p id="p-154">Suppose next <span class="process-math">\(r = 0\)</span> and <span class="process-math">\(r_X(D) \ge 0\text{.}\)</span> Then <span class="process-math">\(|D| \neq \varnothing\)</span> so there exists an effective divisor <span class="process-math">\(E \sim D\text{.}\)</span> Since <span class="process-math">\(\rho\)</span> is a homomorphism, we have <span class="process-math">\(\bar D = \rho(D) \sim \rho(E) \ge 0\)</span> and consequentially <span class="process-math">\(r_G(\bar D) \ge 0\text{.}\)</span></p>
+<p id="p-155">Now suppose <span class="process-math">\(r \ge 1\text{.}\)</span> Let <span class="process-math">\(\bar P \in V(G)\)</span> be any vertex. Since <span class="process-math">\(\rho\)</span> is surjective, we can find some <span class="process-math">\(P \in X\)</span> with <span class="process-math">\(\rho(P) = \bar P\text{.}\)</span> Now by <a href="" class="xref" data-knowl="./knowl/thm-rank-properties.html" title="Theorem 3.2.20">Theorem 3.2.20</a>, <span class="process-math">\(r_X(D - P) \ge r - 1\)</span> and by induction <span class="process-math">\(r_G(\bar D - \bar P) \ge r - 1\text{.}\)</span> Since this holds for all <span class="process-math">\(\bar P\text{,}\)</span> we conclude that <span class="process-math">\(r_G(\bar D) \ge r\text{.}\)</span></p></article></div></section><section class="references" id="references-1"><h3 class="heading hide-type">
+<span class="type">References</span> <span class="codenumber">3.2.4</span> <span class="title">References</span>
 </h3>
 <article class="bib" id="B"><div class="bibitem">[1]</div>  <div class="bibentry">Matthew Baker. <i>Specialization of linear systems from curves to graphs</i>. Algebra Number Theory 2 (6) 613 - 653, 2008. <a class="external" href="https://doi.org/10.2140/ant.2008.2.613" target="_blank"><code class="code-inline tex2jax_ignore">https://doi.org/10.2140/ant.2008.2.613</code></a>
 </div></article><article class="bib" id="L"><div class="bibitem">[2]</div>  <div class="bibentry">Qing Liu. <i>Algebraic Geometry and Arithmetic Curves</i>. Oxford Graduate Texts in Mathematics (Book 6). Oxford University Press, 2006.</div></article></section></section></div></main>
