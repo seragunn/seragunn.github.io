@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-02-25T10:41:51-05:00       *-->
-<!--*   A recent stable commit (2020-08-09):   *-->
-<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
 <!--*         https://pretextbook.org          *-->
 <!--*                                          *-->
@@ -17,11 +14,11 @@
 <meta property="og:type" content="book">
 <meta property="book:title" content="Methods and Examples in Combinatorics and Algebra">
 <meta property="book:author" content="Trevor Gunn">
-<script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script><script>window.MathJax = {
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -51,15 +48,21 @@
     load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+},
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>$(function () {
-    // Make *any* div with class 'sagecell-sage' an executable Sage cell
-    // Their results will be linked, only within language type
-    sagecell.makeSagecell({inputLocation: 'div.sagecell-sage',
-                           linked: true,
-                           languages: ['sage'],
-                           evalButtonText: 'Evaluate (Sage)'});
-});
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({inputLocation: 'pre.sagecell-sage',
+                       linked: true,
+                       languages: ['sage'],
+                       evalButtonText: 'Evaluate (Sage)'});
 </script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -71,7 +74,6 @@
 <link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
 <link href="https://pretextbook.org/css/0.4/colors_blue_green.css" rel="stylesheet" type="text/css">
 <link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
-<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
 </head>
 <body class="pretext-book ignore-math has-toc has-sidebar-left">
 <a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\A}{\mathbf A}
@@ -103,6 +105,8 @@
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
 \newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
 \)</span></div>
 <header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
 <a id="logo-link" href=""></a><div class="title-container">
@@ -158,7 +162,7 @@
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.1.1</span><span class="period">.</span>
 </h4>
 <p id="p-52">A <em class="emphasis">divisor</em> on <span class="process-math">\(X\)</span> is a finitely-supported, formal sum</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \sum_{p \in X} a_p \cdot p
 \end{equation*}
@@ -167,7 +171,7 @@
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.1.2</span><span class="period">.</span>
 </h4>
 <p id="p-53">The <em class="emphasis">degree</em> of a divisor <span class="process-math">\(D = \sum a_p \cdot p\)</span> is</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \deg(D) = \sum a_p \in \Z.
 \end{equation*}
@@ -176,7 +180,7 @@
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.1.3</span><span class="period">.</span>
 </h4>
 <p id="p-54">The divisor associated to a rational function <span class="process-math">\(f \in k(X)\)</span> is</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \divisor(f) = \sum_{p \in X} \ord_p(f) \cdot p
 \end{equation*}
@@ -186,7 +190,7 @@
 <span class="type">Remark</span><span class="space"> </span><span class="codenumber">3.1.4</span><span class="period">.</span>
 </h4>
 <p id="p-56">If <span class="process-math">\(X\)</span> is proper, then every rational function has degree <span class="process-math">\(0\)</span> and we define <span class="process-math">\(\Jac^0(X) = \Div^0(X)/\Prin(X)\text{.}\)</span> Here we have</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \Jac(X) \cong \Jac^0(X) \times \Z.
 \end{equation*}
@@ -194,7 +198,7 @@
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.1.5</span><span class="period">.</span><span class="space"> </span><span class="title">Divisors on <span class="process-math">\(\A^1\)</span>.</span>
 </h4>
 <p id="p-57">On <span class="process-math">\(\A^1\text{,}\)</span> we can specify zeroes and poles of rational functions freely. That is, for <span class="process-math">\(D = a_1 \cdot p_1 + \dots + a_n \cdot p_n\text{,}\)</span> we have</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 D = \divisor\left( (x - p_1)^{a_1} \cdots (x - p_n)^{a_n} \right)
 \end{equation*}
@@ -203,7 +207,7 @@ D = \divisor\left( (x - p_1)^{a_1} \cdots (x - p_n)^{a_n} \right)
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.1.6</span><span class="period">.</span><span class="space"> </span><span class="title">Divisors on <span class="process-math">\(\P^1\)</span>.</span>
 </h4>
 <p id="p-59">On <span class="process-math">\(\P^1\text{,}\)</span> as we said above, every rational function has degree <span class="process-math">\(0\text{.}\)</span> Therefore</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \Jac^0(\P^1) = 0 \text{ and } \Jac(\P^1) \cong \Z.
 \end{equation*}
@@ -211,48 +215,48 @@ D = \divisor\left( (x - p_1)^{a_1} \cdots (x - p_n)^{a_n} \right)
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.1.7</span><span class="period">.</span><span class="space"> </span><span class="title">Divisors on <span class="process-math">\(\Spec \O_K\)</span>.</span>
 </h4>
 <p id="p-60">If <span class="process-math">\(K\)</span> is a finite extension of <span class="process-math">\(\Q\)</span> and <span class="process-math">\(\O_K\)</span> is the ring of integral elements of <span class="process-math">\(K\text{,}\)</span> then the Jacobian of <span class="process-math">\(\Spec \O_K\)</span> is the same thing as the class group of <span class="process-math">\(\O_K\text{.}\)</span></p>
-<div class="sagecell-sage" id="sage-12"><script type="text/x-sage">x = QQ['x'].gen()
+<pre class="ptx-sagecell sagecell-sage" id="sage-12"><script type="text/x-sage">x = QQ['x'].gen()
 K = NumberField(x^2 + 5, x)
 K.class_group()
-</script></div></article><article class="example example-like" id="example-12"><h4 class="heading">
+</script></pre></article><article class="example example-like" id="example-12"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.1.8</span><span class="period">.</span><span class="space"> </span><span class="title">Elliptic curves.</span>
 </h4>
 <p id="p-61">An elliptic curve over <span class="process-math">\(k\)</span> is a projective smooth genus-one curve <span class="process-math">\(E\)</span> with a special marked point '<span class="process-math">\(p_0\text{.}\)</span>'</p>
 <p id="p-62">Every elliptic curve is isomorphic to its Jacobian with</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 p \mapsto p - p_0 \in \Jac^0(E).
 \end{equation*}
 </div>
 <p class="continuation">This is called the <em class="emphasis">Abel-Jacobi</em> map.</p>
-<div class="sagecell-sage" id="sage-13"><script type="text/x-sage"># Solving y^2 = x^3 - 2 via Elliptic curves
+<pre class="ptx-sagecell sagecell-sage" id="sage-13"><script type="text/x-sage"># Solving y^2 = x^3 - 2 via Elliptic curves
 E = EllipticCurve([0, -2])
 print(E)
 print(E.integral_points())
-</script></div>
-<div class="sagecell-sage" id="sage-14"><script type="text/x-sage">E(3, 5, 1) * 2
-</script></div></article></section><section class="subsection" id="ss-linear-series"><h3 class="heading hide-type">
+</script></pre>
+<pre class="ptx-sagecell sagecell-sage" id="sage-14"><script type="text/x-sage">E(3, 5, 1) * 2
+</script></pre></article></section><section class="subsection" id="ss-linear-series"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">3.1.2</span> <span class="title">Linear Series</span>
 </h3>
 <article class="definition definition-like" id="def-line-bundle"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.1.9</span><span class="period">.</span>
 </h4>
 <p id="p-63">The <em class="emphasis">line bundle</em> associated to a divisor <span class="process-math">\(D\)</span> is the sheaf <span class="process-math">\(\L(D)\)</span> where for any open set <span class="process-math">\(U\)</span> of <span class="process-math">\(X\text{,}\)</span></p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
-\L(D)(U) = \{f \in \O_X(U) : \divisor(f) + D \ge 0\}.
+\L(D)(U) = \{f \in k(X) : \divisor(f)|_U + D \ge 0\}.
 \end{equation*}
 </div></article><article class="remark remark-like" id="remark-2"><h4 class="heading">
 <span class="type">Remark</span><span class="space"> </span><span class="codenumber">3.1.10</span><span class="period">.</span>
 </h4>
 <p id="p-64">The global sections of <span class="process-math">\(\L(D)\)</span> form a finite dimensional vector space. If <span class="process-math">\(\ell(D)\)</span> is the dimension of this vector space, then we have</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \ell(D) - \ell(K - D) = \deg(D) + 1 - g.
 \end{equation*}
 </div>
 <p id="p-65">This is known as the <em class="emphasis">Riemann-Roch Theorem</em>. Here <span class="process-math">\(K\)</span> is a divisor known as the <em class="emphasis">canonical divisor</em>. In particular, we have <em class="emphasis">Riemann's Inequality</em></p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \ell(D) \ge \deg(D) + 1 - g
 \end{equation*}
@@ -262,7 +266,7 @@ print(E.integral_points())
 </h4>
 <p id="p-67">Let <span class="process-math">\(s_0, \dots, s_n\)</span> generate the global sections of some line bundle <span class="process-math">\(\L\text{.}\)</span> Then for each point <span class="process-math">\(x \in X\text{,}\)</span> these global sections generate the ring of functions at <span class="process-math">\(x\text{.}\)</span> In particular, we never simultaneously have <span class="process-math">\(s_0(x) = s_1(x) = \dots = s_n(x) = 0\text{.}\)</span></p>
 <p id="p-68">Therefore, we can define a map <span class="process-math">\(s : X \to \P^n\)</span> given by</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 s(x) = [s_0(x) : s_1(x) : \cdots : s_n(x)].
 \end{equation*}
@@ -274,21 +278,21 @@ s(x) = [s_0(x) : s_1(x) : \cdots : s_n(x)].
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.1.13</span><span class="period">.</span><span class="space"> </span><span class="title">Veronese embedding.</span>
 </h4>
 <p id="p-71">Let <span class="process-math">\(X = \P^r\)</span> and let <span class="process-math">\(\L = \O(d)\)</span> with <span class="process-math">\(d &gt; 0\text{.}\)</span> Then the set of monomials of degree <span class="process-math">\(d\)</span> is a basis for the space of global sections of <span class="process-math">\(\O(d)\text{.}\)</span> The induced map</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 s : \P^r \to \P^n, \quad n = \binom{r + d}{d} - 1
 \end{equation*}
 </div>
 <p class="continuation">is called the <em class="emphasis">Veronese map</em>.</p>
 <p id="p-72">For <span class="process-math">\(r = 2\)</span> and <span class="process-math">\(d = 2\)</span> this is the map</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 [x:y:z] \to [x^2 : y^2 : z^2 : xy : xz : yz]
 \end{equation*}
 </div>
 <p class="continuation">from <span class="process-math">\(\P^2 \to \P^5\text{.}\)</span></p>
 <p id="p-73">For <span class="process-math">\(r = 1\)</span> and <span class="process-math">\(d = 3\text{,}\)</span> the image of</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 [x:y] \to [x^3 : x^2y : xy^2 : y^3] \in \P^3
 \end{equation*}
@@ -306,14 +310,14 @@ s : \P^r \to \P^n, \quad n = \binom{r + d}{d} - 1
 <span class="type">Remark</span><span class="space"> </span><span class="codenumber">3.1.16</span><span class="period">.</span>
 </h4>
 <p id="p-79">Recall that we defined (<a href="" class="xref" data-knowl="./knowl/def-line-bundle.html" title="Definition 3.1.9">Definition 3.1.9</a>)</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/def-line-bundle.html">
 \begin{equation*}
 \L(D)(U) = \{f \in \O_X(U) : \divisor(f) + D \ge 0\}.
 \end{equation*}
 </div>
 <p class="continuation">It follows that divisors of <span class="process-math">\(|D|\)</span> correspond to global sections of <span class="process-math">\(\L(D)\text{.}\)</span></p>
 <p id="p-80">We have <span class="process-math">\(\divisor(s) = \divisor(s')\)</span> if <span class="process-math">\(\divisor(s/s') = 0\text{.}\)</span> When <span class="process-math">\(X\)</span> is proper, we have <span class="process-math">\(\divisor(s/s') = 0 \iff s/s' \in k^*\text{.}\)</span> So divisors of global sections define an element of <span class="process-math">\(|D|\)</span> only up to a non-zero scalar. In other words, what we have is</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 |D| \cong (\Gamma(X, \L(D)) - \{0\})/k^*.
 \end{equation*}
@@ -323,7 +327,7 @@ s : \P^r \to \P^n, \quad n = \binom{r + d}{d} - 1
 <p id="p-81">In <a href="" class="xref" data-knowl="./knowl/def-line-bundle.html" title="Definition 3.1.9">Definition 3.1.9</a> we defined <span class="process-math">\(\L(D)\)</span> and called it a "line bundle." This is a special case of a more general definition.</p>
 <p id="p-82">A sheaf <span class="process-math">\(\L\)</span> is called a <em class="emphasis">line bundle</em> if there exists an open cover <span class="process-math">\(X = \bigcup U_i\)</span> for which <span class="process-math">\(\L(U_i) \cong \O_X(U_i)\)</span> for all <span class="process-math">\(i\text{.}\)</span></p>
 <p id="p-83">When <span class="process-math">\(X\)</span> is smooth, then every divisor on <span class="process-math">\(X\)</span> is locally principal (because <span class="process-math">\(\O_X\)</span> is locally a unique factorization ring). So there exists an open cover <span class="process-math">\(X = \bigcup U_i\)</span> and functions <span class="process-math">\(f_i \in \O_X(U_i)\)</span> such that</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 D|_{U_i} = \divisor(f_i).
 \end{equation*}
@@ -338,13 +342,13 @@ D|_{U_i} = \divisor(f_i).
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.1.19</span><span class="period">.</span><span class="space"> </span><span class="title">Dimension properties of linear systems.</span>
 </h4>
 <p id="p-88">Define <span class="process-math">\(\ell(D) = \dim \L(D)\text{.}\)</span> If <span class="process-math">\(\ell(D) &gt; 0\)</span> then for any point <span class="process-math">\(P\text{,}\)</span> <span class="process-math">\(\ell(D - P) \ge \ell(D) - 1\)</span> and there exists a point <span class="process-math">\(P\)</span> for which <span class="process-math">\(\ell(D - P) = \ell(D) - 1\text{.}\)</span></p></article><article class="hiddenproof" id="proof-5"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-5"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-5"><article class="hiddenproof"><p id="p-89">Consider the exact sequence</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 0 \to \L(D - P) \to \L(D) \to k(P) \to 0.
 \end{equation*}
 </div>
 <p class="continuation">Taking global sections gives</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 0 \to \Gamma(X, \L(D - P)) \to \Gamma(X, \L(D)) \to k
 \end{equation*}

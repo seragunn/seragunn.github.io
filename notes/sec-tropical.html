@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-02-25T10:41:51-05:00       *-->
-<!--*   A recent stable commit (2020-08-09):   *-->
-<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
 <!--*         https://pretextbook.org          *-->
 <!--*                                          *-->
@@ -17,11 +14,11 @@
 <meta property="og:type" content="book">
 <meta property="book:title" content="Methods and Examples in Combinatorics and Algebra">
 <meta property="book:author" content="Trevor Gunn">
-<script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script><script>window.MathJax = {
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -51,6 +48,14 @@
     load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+},
 };
 </script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
@@ -63,7 +68,6 @@
 <link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
 <link href="https://pretextbook.org/css/0.4/colors_blue_green.css" rel="stylesheet" type="text/css">
 <link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
-<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
 </head>
 <body class="pretext-book ignore-math has-toc has-sidebar-left">
 <a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\A}{\mathbf A}
@@ -95,6 +99,8 @@
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
 \newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
 \)</span></div>
 <header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
 <a id="logo-link" href=""></a><div class="title-container">
@@ -156,7 +162,7 @@
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.2.3</span><span class="period">.</span>
 </h4>
 <p id="p-95">A <em class="emphasis">divisor</em> on <span class="process-math">\(\Gamma\)</span> is a finitely-supported formal sum</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 D = \sum_{p \in \Gamma} a_p \cdot p
 \end{equation*}
@@ -169,7 +175,7 @@ D = \sum_{p \in \Gamma} a_p \cdot p
 </h4>
 <p id="p-99">A function <span class="process-math">\(f : \Gamma \to \R\)</span> is <em class="emphasis">piecewise linear</em>, if on each edge it is a continuous function that can be broken up into a finite set of linear functions. By abuse of terminology, we will also call these <em class="emphasis">rational functions</em>.</p>
 <p id="p-100">The divisor of such an <span class="process-math">\(f\)</span> is supported at the points <span class="process-math">\(p\)</span> at which <span class="process-math">\(f\)</span> is non-differentiable (including the topological vertices of <span class="process-math">\(\Gamma\)</span>). We define <span class="process-math">\(\ord_p(f)\)</span> to be the sum of the incoming slopes of <span class="process-math">\(f\)</span> at <span class="process-math">\(p\)</span> and define</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \divisor(f) = \sum_{p \in \Gamma} \ord_p(f) \cdot p.
 \end{equation*}
@@ -183,7 +189,7 @@ D = \sum_{p \in \Gamma} a_p \cdot p
 <p id="p-103">If <span class="process-math">\(\Gamma\)</span> is a circle, then the rational functions on <span class="process-math">\(\Gamma\)</span> look something like the following (absolute value of slopes indicated above)</p>
 <div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/latex-image/tikz-rational-function-on-circle.svg" role="img" class="contained" alt="Piecewise-linear function on a circle"></div>
 <p id="p-104">On a circle, the endpoints necessarily have the same <span class="process-math">\(y\)</span>-coordinate. The divisor associated to this piecewise-linear function is</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 (- \tfrac12 + 0)a + (0 - 2)b + (2 + 1)c + (-1 + 0)d + (0 + \tfrac12)e
 \end{equation*}
@@ -191,7 +197,7 @@ D = \sum_{p \in \Gamma} a_p \cdot p
 <span class="type">Remark</span><span class="space"> </span><span class="codenumber">3.2.7</span><span class="period">.</span><span class="space"> </span><span class="title">Divisors on <span class="process-math">\(G = |\Gamma|\)</span>.</span>
 </h4>
 <p id="p-105">We also consider the simpler model of a multigraph (with no metric). Here the divisors are supported only on the vertices of <span class="process-math">\(G\)</span> and the principal divisors are the image of the Laplacian operator <span class="process-math">\(\Delta : V(G) \to \Div(G)\)</span> given by</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \Delta(v) = \sum_{w \sim v} (w - v) = \sum_{w \sim v} w - \val(v)
 \end{equation*}
@@ -223,7 +229,7 @@ D = \sum_{p \in \Gamma} a_p \cdot p
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.2.9</span><span class="period">.</span><span class="space"> </span><span class="title">An elliptic curve degenerating into a collection of rational curves.</span>
 </h4>
 <p id="p-117">Consider the integer equation</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 y^2 = x(x - 7)(x + 1).
 \end{equation*}
@@ -246,13 +252,13 @@ y^2 = x(x - 7)(x + 1).
 </h4>
 <p id="p-126">Given a point of <span class="process-math">\(X\)</span> we can consider its Zariski closure in <span class="process-math">\(\X\)</span> and extending this process linearly, we have a way of taking a divisor on <span class="process-math">\(X\)</span> and getting a divisor on <span class="process-math">\(\X\text{.}\)</span></p>
 <p id="p-127">If <span class="process-math">\(V_1, \dots, V_k\)</span> are the components of <span class="process-math">\(\X_k\)</span> as before, then we have an intersection pairing taking a divisor <span class="process-math">\(\mathscr D\)</span> on <span class="process-math">\(\X\)</span> to</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \mathscr D \cdot V_i = \deg(\L(\mathscr D)|_{V_i}).
 \end{equation*}
 </div>
 <p id="p-128">Putting this altogether we get a homomorphism <span class="process-math">\(\rho : \Div(X) \to \Div(G)\)</span> where</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \rho(D) = \sum_{i = 1}^k (\mathscr D \cdot V_i) v_i.
 \end{equation*}
@@ -261,13 +267,13 @@ y^2 = x(x - 7)(x + 1).
 <span class="type">Remark</span><span class="space"> </span><span class="codenumber">3.2.13</span><span class="period">.</span>
 </h4>
 <p id="p-130">Since the map <span class="process-math">\(X(K) \to \X_k\)</span> is surjective, the map <span class="process-math">\(\rho : \Div(X) \to \Div(G)\)</span> is also surjective.</p></article><p id="p-131">Doing a bit of intersection theory, we see that for <span class="process-math">\(i \neq j\)</span></p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 V_i \cdot V_j = |V_i \cap V_j|
 \end{equation*}
 </div>
 <p class="continuation">is the number of places components <span class="process-math">\(i\)</span> and <span class="process-math">\(j\)</span> intersect. Additionally, the self-intersection number is</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 V_i \cdot V_i = - \val(v_i)
 \end{equation*}
@@ -285,7 +291,7 @@ V_i \cdot V_i = - \val(v_i)
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.2.15</span><span class="period">.</span><span class="space"> </span><span class="title">Specialization of divisors to graphs.</span>
 </h4>
 <p id="p-138">With the notation as before, there is a well defined map</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \rho : \Div(X) \to \Div(G)
 \end{equation*}
@@ -304,16 +310,16 @@ V_i \cdot V_i = - \val(v_i)
 </h4>
 <p id="p-141">Let <span class="process-math">\(K = \C((t))\)</span> and <span class="process-math">\(\X\)</span> be the projective curve defined by <span class="process-math">\(xy = tz^2\text{.}\)</span> This is a smooth conic which degenerates to the pair of lines <span class="process-math">\(V : x = 0\)</span> and <span class="process-math">\(W : y = 0\text{.}\)</span> So the dual graph consists of a single edge <span class="process-math">\(v \sim w\text{.}\)</span></p>
 <p id="p-142">Let <span class="process-math">\(D = P + Q\)</span> with</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 P = (\sqrt t : \sqrt t : 1) \text{ and } Q = (-\sqrt t : - \sqrt t : 1).
 \end{equation*}
 </div>
 <p class="continuation">Then as <span class="process-math">\(t \to \infty\text{,}\)</span> both <span class="process-math">\(P\)</span> and <span class="process-math">\(Q\)</span> converge to the node <span class="process-math">\((0:0:1)\text{.}\)</span></p>
 <p id="p-143">If we look at the solutions to <span class="process-math">\(x = y\)</span> in <span class="process-math">\(\X\)</span> these are exactly <span class="process-math">\(P + Q\)</span> and we also have a couple of poles at infinity <span class="process-math">\((1:0:0) + (0:1:0)\text{.}\)</span> Or in other words,</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
-P + Q - (1:0:0) - (0:1:0) = \div(x - y)
+P + Q - (1:0:0) - (0:1:0) = \divisor(x - y)
 \end{equation*}
 </div>
 <p class="continuation">So <span class="process-math">\(P + Q \sim (1:0:0) + (0:1:0)\)</span> and consequentially <span class="process-math">\(\rho(P + Q) = v + w\text{.}\)</span></p>
@@ -327,7 +333,7 @@ P + Q - (1:0:0) - (0:1:0) = \div(x - y)
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.2.18</span><span class="period">.</span>
 </h4>
 <p id="p-147">If <span class="process-math">\(D\)</span> is a divisor (tropical or algebraic), then recall that <span class="process-math">\(|D| = \{E \ge 0 : E \sim D\}\text{.}\)</span> We define <span class="process-math">\(r(D) = -1\)</span> if <span class="process-math">\(|D| = \varnothing\)</span> and otherwise</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 r(D) =           
 \max\{k : |D - E| \ne \varnothing, \text{ for all } E \in \Div_+^k(X)\}.

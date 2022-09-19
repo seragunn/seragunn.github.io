@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-02-25T10:41:51-05:00       *-->
-<!--*   A recent stable commit (2020-08-09):   *-->
-<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
 <!--*         https://pretextbook.org          *-->
 <!--*                                          *-->
@@ -17,11 +14,11 @@
 <meta property="og:type" content="book">
 <meta property="book:title" content="Methods and Examples in Combinatorics and Algebra">
 <meta property="book:author" content="Trevor Gunn">
-<script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script><script>window.MathJax = {
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -51,15 +48,21 @@
     load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+},
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>$(function () {
-    // Make *any* div with class 'sagecell-sage' an executable Sage cell
-    // Their results will be linked, only within language type
-    sagecell.makeSagecell({inputLocation: 'div.sagecell-sage',
-                           linked: true,
-                           languages: ['sage'],
-                           evalButtonText: 'Evaluate (Sage)'});
-});
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({inputLocation: 'pre.sagecell-sage',
+                       linked: true,
+                       languages: ['sage'],
+                       evalButtonText: 'Evaluate (Sage)'});
 </script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -71,7 +74,6 @@
 <link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
 <link href="https://pretextbook.org/css/0.4/colors_blue_green.css" rel="stylesheet" type="text/css">
 <link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
-<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
 </head>
 <body class="pretext-book ignore-math has-toc has-sidebar-left">
 <a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\A}{\mathbf A}
@@ -103,6 +105,8 @@
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
 \newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
 \)</span></div>
 <header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
 <a id="logo-link" href=""></a><div class="title-container">
@@ -155,13 +159,13 @@
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">1.1.1</span><span class="period">.</span>
 </h3>
 <p id="p-8">Let's start with the <span class="process-math">\(2 \times 2\)</span> case with the matrix</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \begin{bmatrix} 1 \amp -2 \\ 3 \amp -6 \end{bmatrix}
 \end{equation*}
 </div>
 <p id="p-9">If we augment <span class="process-math">\(A\)</span> by the identity matrix and row reduce, we obtain</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \rref [A \mid I] =
 \left[\begin{array}{cc|cc}
@@ -170,12 +174,12 @@
 \end{array} \right]
 \end{equation*}
 </div>
-<div class="sagecell-sage" id="sage-1"><script type="text/x-sage">%display latex
+<pre class="ptx-sagecell sagecell-sage" id="sage-1"><script type="text/x-sage">%display latex
 A = matrix(QQ, [[1, -2], [3, -6]])
 A.extended_echelon_form(subdivide=True)
-</script></div>
+</script></pre>
 <p id="p-10">On the left, we get the row echelon form as expected. On the right, we get the matrix</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 A^{-} = \begin{bmatrix} 0 \amp 1/3 \\ 1 \amp -1/3 \end{bmatrix}
 \end{equation*}
@@ -188,7 +192,7 @@ A^{-} = \begin{bmatrix} 0 \amp 1/3 \\ 1 \amp -1/3 \end{bmatrix}
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">1.1.3</span><span class="period">.</span><span class="space"> </span><span class="title">Symbolic row reduction.</span>
 </h3>
 <p id="p-13">Suppose we take our matrix <span class="process-math">\(A\)</span> as before, but this time we augment with the vector <span class="process-math">\(v = (x, y) \in \Q[x,y]\text{.}\)</span> In this case, we get</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \rref [A \mid v] =
 \left[\begin{array}{cc|c}
@@ -197,14 +201,14 @@ A^{-} = \begin{bmatrix} 0 \amp 1/3 \\ 1 \amp -1/3 \end{bmatrix}
 \end{array} \right]
 \end{equation*}
 </div>
-<div class="sagecell-sage" id="sage-2"><script type="text/x-sage">%display latex
+<pre class="ptx-sagecell sagecell-sage" id="sage-2"><script type="text/x-sage">%display latex
 R.<x,y> = QQ[]
 v = vector([x, y])
 A = matrix(R, [[1, -2], [3, -6]]).augment(v, subdivide=True)
 A.echelon_form() # note: A.rref() computes the echelon form over Frac(R)
-</script></div>
+</script></pre>
 <p id="p-14">The coefficient matrix for the right hand side,</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \begin{bmatrix}
 1 \amp 0 \\
@@ -217,7 +221,7 @@ A.echelon_form() # note: A.rref() computes the echelon form over Frac(R)
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.1.4</span><span class="period">.</span><span class="space"> </span><span class="title">Equations for <span class="process-math">\(\col(A)\)</span>.</span>
 </h3>
 <p id="p-16">Let <span class="process-math">\(A\)</span> be a <span class="process-math">\(m \times n\)</span> matrix. Suppose that <span class="process-math">\(\rref [A \mid I_m]\)</span> has the form</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \left[
 \begin{array}{c|c}
@@ -229,7 +233,7 @@ A_{0,0} \amp A_{0,1} \\ \hline
 </div>
 <p class="continuation">where <span class="process-math">\(A_{0,0}\)</span> is full-rank (has no row of zeros). Then <span class="process-math">\(\col(A) = \ker(A_{1,1})\text{.}\)</span></p></article><article class="hiddenproof" id="proof-1"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-1"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-1"><article class="hiddenproof"><p id="p-17">Let <span class="process-math">\(A^{-} = \begin{bmatrix} A_{0,1} \\ A_{1,1} \end{bmatrix}\)</span> be the left quasi-inverse associated with this echelon form.</p>
 <p id="p-18">As we saw in <a href="" class="xref" data-knowl="./knowl/ex-sym-rowred.html" title="Example 1.1.3: Symbolic row reduction">Example 1.1.3</a>, if <span class="process-math">\(y = (y_1,\dots,y_m)\)</span> is a vector in <span class="process-math">\(\R^m\)</span> then</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-sym-rowred.html">
 \begin{equation*}
 \rref [A \mid y] = A^{-} [A \mid y] =
 \left[
@@ -246,7 +250,7 @@ A_{0,0} \amp A_{0,1}y \\ \hline
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.1.5</span><span class="period">.</span><span class="space"> </span><span class="title">Extended echelon form and the four fundamental subspaces.</span>
 </h3>
 <p id="p-20">Let <span class="process-math">\(A\)</span> be a <span class="process-math">\(m \times n\)</span> matrix. Write</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \rref [A \mid I_m] =
 \left[
@@ -275,7 +279,7 @@ B_{0,0} \amp B_{0,1} \\ \hline
 </ul></article><article class="hiddenproof" id="proof-2"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-2"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-2"><article class="hiddenproof"><p id="p-22">It is a basic property of <span class="process-math">\(A_{0,0}\)</span> that <span class="process-math">\(\row A_{0,0} = \row A\)</span> and <span class="process-math">\(\ker A_{0,0} = \ker A\text{.}\)</span> Likewise, <span class="process-math">\(\row B_{0,0} = \col A\)</span> and <span class="process-math">\(\ker B_{0,0} = \ker A^\top\text{.}\)</span></p>
 <p id="p-23">By <a href="" class="xref" data-knowl="./knowl/thm-col-as-ker.html" title="Theorem 1.1.4: Equations for \col(A)">Theorem 1.1.4</a>, we also have <span class="process-math">\(\ker A_{1,1} = \col A\)</span> and <span class="process-math">\(\ker B_{1,1} = \row A\text{.}\)</span></p>
 <p id="p-24">Lastly, by orthogonality,</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \row B_{1,1} \perp \ker B_{1,1} = \row A \perp \ker A
 \end{equation*}
@@ -286,7 +290,7 @@ B_{0,0} \amp B_{0,1} \\ \hline
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">1.1.6</span><span class="period">.</span>
 </h3>
 <p id="p-26">Consider the matrix</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 A = \begin{bmatrix}
 1 \amp -1 \amp 1 \amp -2 \\
@@ -296,7 +300,7 @@ A = \begin{bmatrix}
 \end{equation*}
 </div>
 <p id="p-27">We have</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \rref [A \mid I_3] =
 \left[\begin{array}{rrrr|rrr}
@@ -307,7 +311,7 @@ A = \begin{bmatrix}
 \end{equation*}
 </div>
 <p class="continuation">and</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \rref[A^\top | I_4] =
 \left[\begin{array}{rrr|rrrr}
@@ -320,7 +324,7 @@ A = \begin{bmatrix}
 \end{equation*}
 </div>
 <p id="p-28">Using <a href="" class="xref" data-knowl="./knowl/thm-extended-rref-subspaces.html" title="Theorem 1.1.5: Extended echelon form and the four fundamental subspaces">Theorem 1.1.5</a>, we have</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-extended-rref-subspaces.html">
 \begin{equation*}
 \col A =
 \spn\left\{
@@ -331,7 +335,7 @@ A = \begin{bmatrix}
 \end{equation*}
 </div>
 <p class="continuation">and</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm-extended-rref-subspaces.html">
 \begin{equation*}
 \ker A =
 \spn\left\{
@@ -344,7 +348,7 @@ A = \begin{bmatrix}
 0 \amp 1 \amp 1 \amp 2
 \end{bmatrix}
 \end{equation*}
-</div></article><div class="sagecell-sage" id="sage-3"><script type="text/x-sage">A = matrix(QQ, [[1, -1, 1, -2], [3, 1, 7, 2], [2, 0, 4, 0]])
+</div></article><pre class="ptx-sagecell sagecell-sage" id="sage-3"><script type="text/x-sage">A = matrix(QQ, [[1, -1, 1, -2], [3, 1, 7, 2], [2, 0, 4, 0]])
 print("rref[A|I] =")
 print(A.extended_echelon_form(True))
 print("rref[A^T|I] =")
@@ -353,7 +357,7 @@ print("ker A =")
 print(A.right_kernel())
 print("col A =")
 print(A.column_space())
-</script></div>
+</script></pre>
 <p id="p-29">A mnemonic of sorts is that <span class="process-math">\(\rref[A \mid I]\)</span> gives parametric representations of <span class="process-math">\(\row A\)</span> and <span class="process-math">\(\ker A^\top = (\col A)^\perp\)</span> and implicit equations for <span class="process-math">\(\ker A\)</span> and <span class="process-math">\(\col A\text{.}\)</span></p>
 <p id="p-30">Of course, one only needs to remember half of that in order to piece together the other half. From that, one also can piece together the same thing for <span class="process-math">\(\rref [A^\top \mid I]\text{.}\)</span> So one only needs to remember two things in order to be able to recall all eight statements from <a href="" class="xref" data-knowl="./knowl/thm-extended-rref-subspaces.html" title="Theorem 1.1.5: Extended echelon form and the four fundamental subspaces">Theorem 1.1.5</a>.</p></section></div></main>
 </div>
