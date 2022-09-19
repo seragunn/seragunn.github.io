@@ -1,0 +1,129 @@
+* {
+	margin: 0;
+}
+
+@font-face {
+    font-family: "opendyslexic";
+	src: url("fonts/OpenDyslexic-Regular.woff") format('woff');
+	font-style: normal;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: "opendyslexic";
+	src: url("fonts/OpenDyslexic-Bold.woff") format('woff');
+	font-style: normal;
+	font-weight: bold;
+}
+
+body {
+	background: #EEE;
+	font-family: verdana,arial,helvetica,sans-serif;
+	margin: auto;
+	padding: 0em 1em;
+}
+
+h1 {
+	font-size: 2.4em;
+	padding: 0.8em 0em 0.4em;
+}
+
+h2 {
+	font-size: 1.2em;
+}
+
+h3 {
+	font-size: 1em;
+	margin-top: 0.5em;
+	margin-bottom: -0.3em;
+}
+
+p {
+	color: #222;
+	font-size: 1em;
+	line-height: 1.5;
+	margin-top: 0.5em;
+}
+
+ul {
+	list-style-type: square;
+	padding-top: 0.4em;
+	padding-left: 1em;
+}
+
+a {
+	text-decoration: none;
+	font-weight: bold;
+	color: #0080ff;
+}
+
+a:hover {
+	color: #20b0ff;
+}
+
+a.paperurl {
+	color: #ff0080;
+}
+
+a.paperurl:hover {
+	color: #ff80cc;
+}
+
+a.coauthor {
+	color: #8000ff;
+}
+
+a.coauthor:hover {
+	color: #8080ff;
+}
+
+.section {
+	margin-top: 0.8em;
+	margin-bottom: 1.2em;
+}
+
+.photo {
+	width: 20em;
+}
+
+#accessibility {
+	font-size: smaller;
+	position: fixed;
+	bottom: 5px;
+	right: 10px;
+	color: #333;
+}
+
+#accessibility:hover {
+	color: #666;
+}
+
+@media only screen and (min-width: 45em) {
+	body {
+		width: 40em;      
+	}
+}
+
+@media only screen and (min-width: 60em) and (min-width: 150ch) {
+	body {
+		width: 60em;
+	}
+	.photo {
+		float: right;
+	}
+}
+
+@media only screen and (min-width: 45em) {
+	h1, h2 {
+		text-align: left;
+	}
+	hr {
+		margin-right: 0.5em;
+	}
+	.section {
+		width: 40em;
+	}
+	.photo {
+		margin: 0em;
+	}
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-02-25T10:41:51-05:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>$(function () {
+    // Make *any* div with class 'sagecell-sage' an executable Sage cell
+    // Their results will be linked, only within language type
+    sagecell.makeSagecell({inputLocation: 'div.sagecell-sage',
+                           linked: true,
+                           languages: ['sage'],
+                           evalButtonText: 'Evaluate (Sage)'});
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.2.4</span><span class="period">.</span><span class="space"> </span><span class="title">Random column space.</span>
+</h3>
+<div class="sagecell-sage" id="sage-8"><script type="text/x-sage">m = 3
+n = 4
+rank = 2
+A = random_matrix(QQ, m, n, algorithm="echelonizable", rank=rank, upper_bound=10)
+
+print(f"A =\n{A}\n\nrref(A) =\n{A.rref()}\n\nrref(A^T) =\n{A.T.rref()}\n\ncol(A) = (as rowspace)\n{A.column_space()}")
+</script></div>
+<div class="sagecell-sage" id="sage-9"><script type="text/x-sage"># Test if given vectors is a basis for col(A)
+test = (QQ^m).subspace([[1, 0, 0], [0, 1, 0]])
+test == A.column_space()
+</script></div></article><span class="incontext"><a href="sec-LA-practice-problems.html#example-7">in-context</a></span>
+</body>
+</html>
