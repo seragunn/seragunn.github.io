@@ -1,0 +1,9 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\begin{document}
+\begin{tikzpicture}
+  \filldraw [fill=black!10, draw=black] (0,2.5) -- (0,2) -- (2,0) -- (3,0) -- (5,1) -- (5,2.5);
+  \foreach \x/\y in {0/2, 1/1, 2/0, 3/0, 4/2, 5/1}
+      \filldraw (\x,\y) circle (0.5mm);
+\end{tikzpicture}
+\end{document}
