@@ -1,3 +1,4 @@
+:css: style.css
 :js-header: mathjax-config.js
 
 Tropical Extensions and Baker-Lorscheid Multiplicities
