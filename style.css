@@ -86,16 +86,11 @@ a.coauthor:hover {
 	width: 20em;
 }
 
-#accessibility {
-	font-size: smaller;
+#pride {
 	position: fixed;
 	bottom: 5px;
 	right: 10px;
-	color: #333;
-}
-
-#accessibility:hover {
-	color: #666;
+	width: 30px;
 }
 
 @media only screen and (min-width: 45em) {
