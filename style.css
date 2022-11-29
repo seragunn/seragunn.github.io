@@ -2,6 +2,13 @@
 	margin: 0;
 }
 
+@font-face {
+	font-family: 'Pacifico';
+	font-style: normal;
+	font-weight: 400;
+	src: url("fonts/Pacifico.woff2") format('woff2');
+}  
+
 body {
 	background: #EEE;
 	font-family: 'Noto Sans', sans-serif;
