@@ -4,12 +4,13 @@
 
 body {
 	background: #EEE;
-	font-family: verdana,arial,helvetica,sans-serif;
+	font-family: 'Noto Sans', sans-serif;
 	margin: auto;
 	padding: 0em 1em;
 }
 
 h1 {
+	font-family: 'Pacifico', serif;
 	font-size: 2.4em;
 	padding: 0.8em 0em 0.4em;
 }
