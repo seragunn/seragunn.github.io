@@ -88,9 +88,15 @@ a.coauthor:hover {
 
 #pride {
 	position: fixed;
-	bottom: 5px;
+	bottom: 15px;
+	right: 15px;
+	width: 50px;
+}
+
+#pride:hover {
+	bottom: 10px;
 	right: 10px;
-	width: 30px;
+	width: 60px;
 }
 
 @media only screen and (min-width: 45em) {
