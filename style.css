@@ -2,20 +2,6 @@
 	margin: 0;
 }
 
-@font-face {
-    font-family: "opendyslexic";
-	src: url("fonts/OpenDyslexic-Regular.woff") format('woff');
-	font-style: normal;
-	font-weight: normal;
-}
-
-@font-face {
-	font-family: "opendyslexic";
-	src: url("fonts/OpenDyslexic-Bold.woff") format('woff');
-	font-style: normal;
-	font-weight: bold;
-}
-
 body {
 	background: #EEE;
 	font-family: verdana,arial,helvetica,sans-serif;
