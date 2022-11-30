@@ -20,10 +20,6 @@ body {
 	margin-bottom: 1.2em;
 }
 
-.photo {
-	width: 20em;
-}
-
 h1 {
 	font-family: 'Pacifico', serif;
 	font-size: 3em;
@@ -36,12 +32,13 @@ h2 {
 }
 
 h3 {
+	font-family: 'Noto Sans', sans-serif;
 	font-size: 1.1em;
 	margin-top: 0.5em;
 	margin-bottom: -0.3em;
 }
 
-p, li {
+p, li, pre.address {
 	color: #222;
 	font-size: 1em;
 	font-family: 'Noto Sans', sans-serif;
@@ -101,7 +98,10 @@ a.person:hover {
 
 @media only screen and (min-width: 42em) {
 	body, .section {
-		width: 40em;      
+		width: 40em;     
+	}
+	.contact {
+		float: right;
 	}
 }
 
@@ -111,5 +111,8 @@ a.person:hover {
 	}
 	.photo {
 		float: right;
+	}
+	.contact {
+		float: none;
 	}
 }
