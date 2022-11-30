@@ -11,32 +11,47 @@
 
 body {
 	background: #EEE;
-	font-family: 'Noto Sans', sans-serif;
 	margin: auto;
 	padding: 0em 1em;
 }
 
+.section {
+	margin-top: 0.8em;
+	margin-bottom: 1.2em;
+}
+
+.photo {
+	width: 20em;
+}
+
 h1 {
 	font-family: 'Pacifico', serif;
-	font-size: 2.4em;
+	font-size: 3em;
 	padding: 0.8em 0em 0.4em;
 }
 
 h2 {
-	font-size: 1.2em;
+	font-family: 'Noto Sans', sans-serif;
+	font-size: 1.5em;
 }
 
 h3 {
-	font-size: 1em;
+	font-size: 1.1em;
 	margin-top: 0.5em;
 	margin-bottom: -0.3em;
 }
 
-p {
+p, li {
 	color: #222;
 	font-size: 1em;
+	font-family: 'Noto Sans', sans-serif;
+}
+
+p {
 	line-height: 1.5;
 	margin-top: 0.5em;
+	text-align:justify;
+	hyphens: auto;
 }
 
 ul {
@@ -71,15 +86,6 @@ a.person:hover {
 	color: #8080ff;
 }
 
-.section {
-	margin-top: 0.8em;
-	margin-bottom: 1.2em;
-}
-
-.photo {
-	width: 20em;
-}
-
 #pride {
 	position: fixed;
 	bottom: 15px;
@@ -93,32 +99,17 @@ a.person:hover {
 	width: 60px;
 }
 
-@media only screen and (min-width: 45em) {
-	body {
+@media only screen and (min-width: 42em) {
+	body, .section {
 		width: 40em;      
 	}
 }
 
-@media only screen and (min-width: 60em) and (min-width: 150ch) {
+@media only screen and (min-width: 65em) {
 	body {
-		width: 60em;
+		width: 62em;
 	}
 	.photo {
 		float: right;
-	}
-}
-
-@media only screen and (min-width: 45em) {
-	h1, h2 {
-		text-align: left;
-	}
-	hr {
-		margin-right: 0.5em;
-	}
-	.section {
-		width: 40em;
-	}
-	.photo {
-		margin: 0em;
 	}
 }
