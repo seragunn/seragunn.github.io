@@ -23,7 +23,7 @@ body {
 
 h1 {
 	font-family: 'Pacifico', serif;
-	font-size: 3em;
+	font-size: 2.4em;
 	padding: 0.8em 0em 0.4em;
 }
 
@@ -107,6 +107,9 @@ a.person:hover {
 	}
 	.contact {
 		float: right;
+	}
+	h1 {
+		font-size: 3em;
 	}
 }
 
