@@ -7,7 +7,7 @@
 	font-style: normal;
 	font-weight: 400;
 	src: url("fonts/Pacifico.woff2") format('woff2');
-}  
+}
 
 body {
 	background: #EEE;
@@ -46,7 +46,7 @@ p, li {
 p {
 	line-height: 1.5;
 	margin-top: 0.5em;
-	text-align:justify;
+	text-align: justify;
 	hyphens: auto;
 }
 
@@ -103,7 +103,7 @@ a.person:hover {
 
 @media (min-width: 42em) {
 	body, .section {
-		width: 40em;     
+		width: 40em;
 	}
 	.contact {
 		float: right;
