@@ -101,7 +101,7 @@ a.person:hover {
 	width: 60px;
 }
 
-@media (min-width: 42em) {
+@media (min-width: 45em) {
 	body, .section {
 		width: 40em;
 	}
@@ -113,7 +113,7 @@ a.person:hover {
 	}
 }
 
-@media (min-width: 65em) {
+@media (min-width: 68em) {
 	body {
 		width: 63em;
 	}
