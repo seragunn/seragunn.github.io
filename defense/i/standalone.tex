@@ -1,0 +1,257 @@
+\documentclass[tikz,convert=pdf2svg]{standalone}
+\usepackage{tikz}
+    \usetikzlibrary{calc}
+\usepackage{mathtools}
+\usepackage{amssymb}
+
+\newcommand{\A}{\mathbf{A}}
+\newcommand{\B}{\mathbf{B}}
+\newcommand{\C}{\mathbf{C}}
+\newcommand{\F}{\mathbf{F}}
+\newcommand{\G}{\mathbf{G}}
+\newcommand{\K}{\mathbf{K}}
+\newcommand{\N}{\mathbf{N}}
+\renewcommand{\P}{\mathbf{P}}
+\newcommand{\Q}{\mathbf{Q}}
+\newcommand{\R}{\mathbf{R}}
+\renewcommand{\S}{\mathbf{S}}
+\newcommand{\T}{\mathbf{T}}
+\newcommand{\Z}{\mathbf{Z}}
+
+\newcommand{\X}{\mathfrak{X}}
+
+\definecolor{asypurple}{HTML}{8000FF}
+\newcommand{\maxtropline}[3]{%
+    \filldraw (#1, #2) circle (0.05);
+    \draw (0, #2) -| (#1, 0);
+    \draw (#1, #2) -- ($(0,#3)!(#1, #2)!(#3,0)$); %draw until the line x + y = #3
+}
+\newcommand{\maxtroplinecolor}[4]{%
+    \filldraw (#1, #2) [#4] circle (0.05);
+    \draw (0, #2) [#4] -| (#1, 0);
+    \draw (#1, #2) [#4] -- ($(0,#3)!(#1, #2)!(#3,0)$); %draw until the line x + y = #3
+}
+
+\begin{document}
+\begin{tikzpicture}
+    \foreach \x/\y/\s in {0/0/+, 1/1/+}
+        \filldraw (\x, \y) circle (0.05) node[above left] {$\s$};
+    \draw (0,0) -- (1,1);
+
+    \draw (1.5, 0.5) node {$\oplus$};
+
+\begin{scope}[xshift=2cm]
+    \foreach \x/\y/\s in {0/1/-, 2/0/+}
+        \filldraw (\x, \y) circle (0.05) node[above right] {$\s$};
+    \draw (0,1) -- (2,0);
+\end{scope}
+
+    \draw (5, 0.5) node {$=$};
+
+\begin{scope}[xshift=5.5cm, yshift=0.5cm]
+    \foreach \x/\y in {0/0, 1/1, 2/-1, 3/0}
+        \filldraw (\x, \y) circle (0.05);
+    \draw (0,0) -- (1,1) -- (3,0) -- (2,-1) -- cycle;
+\end{scope}
+\end{tikzpicture}
+\end{document}
+
+% ss-model
+% \draw (0,0) -- (5,0) node[right=5mm] {$\operatorname{Spec}(\Z_p)$};
+% \filldraw (1,0) circle (0.1) node[below] {$(0)$};
+% \filldraw (4,0) circle (0.05) node[below] {$(p)$};
+% \draw plot[smooth] coordinates{(0,4)(0.25,2)(0.5,1)(1,4)(1.25,3)(1.5,1)};
+% \draw (3,1) -- (4.5,4);
+% \draw (3,1.5) -- (5,1.5);
+% \draw (4, 4) -- (4.7,1);
+% \draw (1,4) node[above=5mm] {$\X(\Q_p)$};
+% \draw (4,4) node[above=5mm] {$\X(\F_p)$};
+% \draw (5,2.5) node[right=1cm] {$\X$};
+
+% lattice length
+% \foreach \y [evaluate=\y as \x using \y * 2] in {0, 1, 2, 3} {
+%     \filldraw (\x, \y) circle (0.05);
+% }
+% \draw (0,0) -- (6,3) node[above] {$(6,3)$};
+% \draw (2,1) node[below right] {$(2,1)$};
+
+% trop-cycles
+% \filldraw (0,0) circle (0.05) node[below left] {$1$};
+% \filldraw (2,0) circle (0.05) node[above] {$1$};
+% \filldraw (0,2) circle (0.05) node[right] {$1$};
+% \filldraw (0,1) circle (0.05);
+% \filldraw (1,0) circle (0.05);
+% \filldraw (1,1) circle (0.05);
+% \draw (0,0) -- (2,0) -- (0,2) -- cycle;
+% \draw (0,1) -- (1,0) -- (1,1) -- cycle;
+% \draw[blue, very thick] (-0.7,0.3) -- (0.3,0.3) -- (0.6,0.6) -- (0.6, 1.2) -- (1.1, 1.7);
+% \draw[blue, very thick] (-0.7,1.2) -- (0.6,1.2);
+% \draw[blue, very thick] (1.2,-0.7) -- (1.2,0.6);
+% \draw[blue, very thick] (0.3,-0.7) -- (0.3,0.3);
+% \draw[blue, very thick] (0.6,0.6) -- (1.2,0.6) -- (1.7,1.1);
+
+% \draw (2.5, 1) node {$+$};
+
+% \begin{scope}[xshift=3cm, yshift=0.5cm]
+%     \draw (0,0) -- (0,1) -- (1,0) -- cycle;
+%     \filldraw (0,1) circle (0.05) node[above] {$2$};
+%     \filldraw (1,0) circle (0.05) node[right] {$1.5$};
+%     \filldraw (0,0) circle (0.05);
+%     \draw[blue, very thick] (-0.3,0.3) -| (0.3,-0.3);
+%     \draw[blue, very thick] (0.3,0.3) -- (0.7,0.7);
+% \end{scope}
+
+% \draw (4.5, 1) node {$=$};
+
+% \begin{scope}[xshift=5.5cm, yshift=-0.5cm]
+%     \filldraw (0,0) circle (0.05) node[below right] {$1$};
+%     \filldraw (0,1) circle (0.05);
+%     \filldraw (1,0) circle (0.05);
+%     \filldraw (0,2) circle (0.05) node[left] {$1$};
+%     \filldraw (1,1) circle (0.05);
+%     \filldraw (2,0) circle (0.05) node[below] {$1$};
+%     \filldraw (0,3) circle (0.05) node[above] {$3$};
+%     \filldraw (1,2) circle (0.05) node[above right] {$2$};
+%     \filldraw (2,1) circle (0.05) node[above right] {$1.5$};
+%     \filldraw (3,0) circle (0.05) node[right] {$2.5$};
+
+%     \draw (0,1) -- (1,0) -- (1,1) -- cycle;
+%     \draw (0,1) |- (1,0);
+%     \draw (0,1) -- (0,3) -- (1,2) -- (1,1) -- (0,2);
+%     \draw (1,0) -- (3,0) -- (2,1) -- (1,1) -- (2,0);
+%     \draw (1,2) -- (2,1);
+% \end{scope}
+
+% \begin{scope}[xshift=4cm, yshift=-3.5cm]
+%     \tikzset{every path/.style={very thick, blue}};
+%     \draw (0,0) -- (1,1);
+%     \draw (-1,0) -| (0,-1);
+%     \draw (1,2) |- (2,1);
+%     \draw (-3,-2) -- (-1,0) -- (-1,2);
+%     \draw (-2,-3) -- (0,-1) -- (2,-1);
+%     \tikzset{every path/.style={very thick, asypurple}};
+%     \draw (-1.5,-2) -- (-2.25,-2.75);
+%     \draw (-1.5,2) |- (2,-2);
+%     \tikzset{every path/.style={black}};
+%     \filldraw (-1,-2) circle (0.07);
+%     \filldraw (-1.5,-0.5) circle (0.07);
+% \end{scope}
+
+% univariate-cycle
+% \foreach \x/\y in {0/4, 1/3, 3/1, 5/0, 6/1, 7/0, 8/2} {
+%     \filldraw (\x,\y) circle (0.05) node[above] {$\y$};
+% }
+% \draw (0,-1) -- (8,-1);
+% \draw (0,4) -- (3,1) -- (5,0) -- (7,0) -- (8,2);
+
+% \filldraw (0,-1) circle (0.05);
+% \filldraw[blue] (1.5, -1) circle (0.1) node[below=2] {$3$};
+% \filldraw (3,-1) circle (0.05);
+% \filldraw[blue] (4, -1) circle (0.1) node[below=2] {$2$};
+% \filldraw (5,-1) circle (0.05);
+% \filldraw[blue] (6, -1) circle (0.1) node[below=2] {$2$};
+% \filldraw (7,-1) circle (0.05);
+% \filldraw[blue] (7.5, -1) circle (0.1) node[below=2] {$1$};
+% \filldraw (8,-1) circle (0.05);
+
+% enriched-univariate
+% \foreach \x/\y/\z in {0/4/+, 1/3/+, 3/1/-, 5/0/-, 6/1/+, 7/0/-, 8/2/+} {
+%     \filldraw (\x,\y) circle (0.05) node[above] {$\z$};
+% }
+% \draw (0,-1) -- (8,-1);
+% \draw (0,4) -- (3,1) -- (5,0) -- (7,0) -- (8,2);
+
+% \filldraw (0,-1) circle (0.05);
+% \filldraw[blue] (1.5, -1) circle (0.1) node[below=2] {$1$};
+% \filldraw (3,-1) circle (0.05);
+% \filldraw (5,-1) circle (0.05);
+% \filldraw (7,-1) circle (0.05);
+% \filldraw[blue] (7.5, -1) circle (0.1) node[below=2] {$1$};
+% \filldraw (8,-1) circle (0.05);
+
+% pmult-example
+% \filldraw [fill=red!60!blue!30] (1,1) -- +(1,0) -- +(0,1) -- cycle;
+% \filldraw [fill=red!40!blue!20] (1,0) -| +(1,1) -| cycle;
+% \filldraw [fill=red!40!blue!20] (0,2) -- +(1,-1) -- +(1,0) -- +(0,1) -- cycle;
+% \filldraw [fill=red!40!blue!20] (2,2) -- +(1,-1) -- +(1,0) -- +(0,1) -- cycle;
+% \filldraw [fill=red!40!blue!20] (2,1) -- +(-1,1) -- +(0,1) -- +(1,0) -- cycle;
+
+% \draw (0,1) -| (1,0);
+% \draw (0,2) -- +(1,-1);
+% \draw (0,4) -- +(1,-1);
+% \draw (4,0) -- +(0,1);
+% \draw (1,4) |- +(1,-1);
+% \draw (3,2) |- +(1,-1);
+% \draw (2,1) -| +(1,-1);
+% \draw (1,2) -- +(0,1);
+
+% \foreach \x in {0,...,5} {
+%     \foreach \y [parse=true] in {0,...,5 - \x}{
+%         \filldraw (\x, \y) circle (0.05);
+%     }
+% }
+
+% \foreach \x/\y in {0/0, 0/4, 0/5, 1/1, 1/2, 2/1, 2/2, 3/1, 4/0, 5/0} {
+%     \draw (\x, \y) node[above right, color=blue] {$+$};
+% }
+
+% \foreach \x/\y in {0/1, 0/2, 0/3, 1/0, 1/3, 1/4, 2/0, 2/3, 3/0, 3/2, 4/1} {
+%     \draw (\x, \y) node[above right, color=blue] {$-$};
+% }
+
+% \draw [line width=1.5] (0,0) -- (0, 5) -- (5, 0) -- cycle;
+
+% \draw (4.75,2.5) node {$\xrightarrow{\text{Quotient}}$};
+
+% \begin{scope}[xshift=6cm, yshift=0.5cm]
+% \draw (0,1) -| (1,0);
+% \draw (1,1) -| (2,0);
+% \draw (2,1) -| (3,0);
+% \draw (0,2) -- (1,1) -- (1,3);
+% \draw (0,3) -- (1,2) -- (2,2) -- (2,1);
+
+% \foreach \x in {0,...,4} {
+%     \foreach \y [parse=true] in {0,...,4 - \x}{
+%         \filldraw (\x, \y) circle (0.05);
+%     }
+% }
+
+% \foreach \x/\y in {0/0, 0/3, 0/4, 1/1, 2/1, 3/0, 4/0} {
+%     \draw (\x, \y) node[above right, color=blue] {$+$};
+% }
+
+% \foreach \x/\y in {0/1, 0/2, 1/0, 1/2, 1/3, 2/0, 2/2, 3/1} {
+%     \draw (\x, \y) node[above right, color=blue] {$-$};
+% }
+
+% \draw [line width=1.5] (0,0) -- (0, 4) -- (4, 0) -- cycle;
+% \end{scope}
+
+% \begin{scope}[xshift=3cm, yshift=-4cm]
+% \maxtropline{0.5}{1}{6}
+% \maxtroplinecolor{1.9}{1.3}{6}{red!70!blue!80}
+% \maxtropline{2.2}{2.2}{6}
+% \maxtropline{3}{1.8}{6}
+% \maxtropline{4}{0.5}{6}
+% \end{scope}
+
+% IR-mixed-cell
+% \foreach \x/\y/\s in {0/0/-, 1/1/+}
+% \filldraw (\x, \y) circle (0.05) node[above left] {$\s$};
+% \draw (0,0) -- (1,1);
+
+% \draw (1.5, 0.5) node {$\oplus$};
+
+% \begin{scope}[xshift=2cm]
+% \foreach \x/\y/\s in {0/1/+, 2/0/+}
+% \filldraw (\x, \y) circle (0.05) node[above right] {$\s$};
+% \draw (0,1) -- (2,0);
+% \end{scope}
+
+% \draw (5, 0.5) node {$=$};
+
+% \begin{scope}[xshift=5.5cm, yshift=0.5cm]
+% \foreach \x/\y in {0/0, 1/1, 2/-1, 3/0}
+% \filldraw (\x, \y) circle (0.05);
+% \draw (0,0) -- (1,1) -- (3,0) -- (2,-1) -- cycle;
+% \end{scope}

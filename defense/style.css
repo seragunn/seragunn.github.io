@@ -1,0 +1,32 @@
+img {
+    width: 40%;
+}
+
+.eg {
+    border-radius: 10px;
+    background: #ffeeff;
+    margin: 10px;
+    padding: 10px;
+    font-size: 80%;
+}
+
+.theorem {
+    border-radius: 10px;
+    border: 3px solid #29ad46;
+    font-size: 30px;
+    margin: 15px;
+    padding: 0px 15px;
+}
+
+.theorem p {
+    text-align: justify;
+}
+
+.theorem p:first-of-type {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.theorem img {
+    margin: auto;
+}

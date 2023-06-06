@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="170.477" height="170.477" viewBox="0 0 170.477 170.477">
+<defs>
+<clipPath id="clip-0">
+<path clip-rule="nonzero" d="M 0 107 L 63 107 L 63 170.476562 L 0 170.476562 Z M 0 107 "/>
+</clipPath>
+<clipPath id="clip-1">
+<path clip-rule="nonzero" d="M 51 136 L 170.476562 136 L 170.476562 170.476562 L 51 170.476562 Z M 51 136 "/>
+</clipPath>
+<clipPath id="clip-2">
+<path clip-rule="nonzero" d="M 113 85 L 170.476562 85 L 170.476562 86 L 113 86 Z M 113 85 "/>
+</clipPath>
+<clipPath id="clip-3">
+<path clip-rule="nonzero" d="M 141 0 L 170.476562 0 L 170.476562 29 L 141 29 Z M 141 0 "/>
+</clipPath>
+</defs>
+<path fill="none" stroke-width="0.3985" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="10" d="M -0.001375 -0.0009375 L 28.346281 -0.0009375 L 56.693937 28.346719 L 56.693937 56.694375 L 28.346281 56.694375 L -0.001375 28.346719 Z M -0.001375 -0.0009375 " transform="matrix(1, 0, 0, -1, 56.892, 113.585)"/>
+<g clip-path="url(#clip-0)">
+<path fill="none" stroke-width="0.3985" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="10" d="M -0.001375 -0.0009375 L -56.692781 -56.692344 " transform="matrix(1, 0, 0, -1, 56.892, 113.585)"/>
+</g>
+<path fill="none" stroke-width="0.3985" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="10" d="M -0.001375 28.346719 L -28.345125 28.346719 " transform="matrix(1, 0, 0, -1, 56.892, 113.585)"/>
+<path fill="none" stroke-width="0.3985" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="10" d="M -56.692781 -0.0009375 L -28.345125 28.346719 L -28.345125 113.385781 " transform="matrix(1, 0, 0, -1, 56.892, 113.585)"/>
+<path fill="none" stroke-width="0.3985" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="10" d="M 28.346281 -0.0009375 L 28.346281 -28.348594 " transform="matrix(1, 0, 0, -1, 56.892, 113.585)"/>
+<g clip-path="url(#clip-1)">
+<path fill="none" stroke-width="0.3985" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="10" d="M -0.001375 -56.692344 L 28.346281 -28.348594 L 113.385344 -28.348594 " transform="matrix(1, 0, 0, -1, 56.892, 113.585)"/>
+</g>
+<g clip-path="url(#clip-2)">
+<path fill="none" stroke-width="0.3985" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="10" d="M 56.693937 28.346719 L 113.385344 28.346719 " transform="matrix(1, 0, 0, -1, 56.892, 113.585)"/>
+</g>
+<path fill="none" stroke-width="0.3985" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="10" d="M 28.346281 56.694375 L 28.346281 113.385781 " transform="matrix(1, 0, 0, -1, 56.892, 113.585)"/>
+<path fill="none" stroke-width="0.3985" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="10" d="M 56.693937 56.694375 L 85.041594 85.042031 " transform="matrix(1, 0, 0, -1, 56.892, 113.585)"/>
+<g clip-path="url(#clip-3)">
+<path fill="none" stroke-width="0.3985" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="10" d="M 85.041594 113.385781 L 85.041594 85.042031 L 113.385344 85.042031 " transform="matrix(1, 0, 0, -1, 56.892, 113.585)"/>
+</g>
+</svg>

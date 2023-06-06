@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Divisors and Multiplicities under Shadows</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/beige.css">
+	<link rel="stylesheet" href="style.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h1 style="font-size: 50px;">
+					Divisors and Multiplicities under tropical and signed shadows
+				</h1>
+				<p>
+					Trevor Gunn
+				</p>
+			</section>
+			<section data-background-color="#A7C">
+				<h2>Part I:</h2>
+				<p>Divisors on Metric Graphs</p>
+			</section>
+			<section data-background-iframe="https://www.desmos.com/calculator/kp6cznq5fr" data-background-interactive
+				data-preload></section>
+			<section data-auto-animate>
+				<p>Divisors, line bundles, linear systems, etc. are connected to projective embeddings.</p>
+				<p>E.g. $\P^1 \xrightarrow{\O(3)} \P^3$</p>
+				<div>
+					<img src="i/twisted-cubic.png" alt="Twisted Cubic" style="width: 30%">
+				</div>
+			</section>
+			<section data-auto-animate>
+				<p>Divisors, line bundles, linear systems, etc. are connected to projective embeddings.</p>
+				<p>E.g. $\P^1 \xrightarrow{\O(3)} \P^3$</p>
+				<div>
+					<img src="i/twisted-cubic.png" alt="Twisted Cubic" style="width: 30%">
+					<p style="float: right;">Can embed graphs in $\R^3$ <br> putting vertices on the TC</p>
+				</div>
+			</section>
+			<section>
+				<img src="i/genus-1-graph.svg" alt="Genus 1 Graph">
+				<p>A genus 1 metric graph</p>
+			</section>
+			<section data-auto-animate>
+				<img src="i/berkovich.svg" alt="Berkovich space">
+				<p>Berkovich projective line</p>
+			</section>
+			<section data-auto-animate style="font-size: 70%;">
+				<img src="i/berkovich.svg" alt="Berkovich space" style="width: 25%">
+				<p>
+					Points in $\P^{1,\mathrm{an}}$ are:
+				<ol>
+					<li>$|f|_x = |f(x)|$ for some $x \in \P^1$</li>
+					<li class="fragment" data-fragment-index="1">$|f|_{x,r} = \sup\limits_{|y - x| \le r} |f|_y$ for
+						rational $r$</li>
+					<li class="fragment" data-fragment-index="1">$|f|_{x,r} = \sup\limits_{|y - x| \le r} |f|_y$ for
+						irrational $r$</li>
+					<li class="fragment" data-fragment-index="2">limits of closed discs</li>
+				</ol>
+				</p>
+			</section>
+			<section>
+				<img src="i/ss-model.svg" alt="Semistable Model">
+				<p class="fragment">
+					Components of $\X(\F_p)$ give valuations on $\X$
+				</p>
+			</section>
+			<section>
+				<p>Dual graph of $\X(\F_p)$ <br> with <b>no leaf edges</b> <br> is called the <i>minimal skeleton</i>
+				</p>
+				<img src="i/minimal-skeleton.svg" alt="Minimal Skeleton of a Tate Curve">
+			</section>
+			<section data-auto-animate>
+				<img src="i/degree-3-newton-polygon.svg" alt="Degree 3 Newton Polygon" style="margin-right: 1em;">
+				<img src="i/tropical-elliptic.svg" alt="Tropical Elliptic Curve">
+				<p>Newton polytope/complex <br> and associated tropical curve</p>
+			</section>
+			<section>
+				<section data-auto-animate>
+					<img src="i/genus-1-graph.svg" alt="Degree 3 Newton Polygon" style="margin-right: 1em;">
+					<img src="i/tropical-elliptic.svg" alt="Tropical Elliptic Curve">
+					<p>Piecewise-linear coordinate functions on skeleta <br> give divisors</p>
+				</section>
+				<section>
+					<p>
+						If $f$ is a meromorphic function on $\X^{\mathrm{an}}$ then
+						\[
+							(x, |\cdot|) \mapsto \log |f(x)|
+						\]
+						is a piecewise linear function.
+					</p>
+				</section>
+			</section>
+			<section data-auto-animate>
+				<div class="theorem" data-id="main-box">
+					<p>Baker-Rabinoff</p>
+					<p data-id="statement">There exist coordinate functions which lift, such that the resulting tropiclization is an
+						isometry on the minimal skeleton.</p>
+					<img src="i/BR-coordinates.svg" alt="Baker-Rabinoff coordinate functions" style="width: 50%;">
+				</div>
+			</section>
+			<section>
+				<section data-auto-animate>
+					<div class="theorem">
+						<p>Baker-Rabinoff</p>
+						<img src="i/BR-coordinates.svg" alt="Baker-Rabinoff coordinate functions" style="width: 50%;">
+					</div>
+					<div class="theorem" data-id="main-box">
+						<p>G-Jell</p>
+						<p data-id="statement">There exist coordinate functions which lift, such that the resulting tropiclization is an
+							isometry on the <b>extended</b> skeleton.</p>
+						<img src="i/GJ-coordinates.svg" alt="Baker-Rabinoff coordinate functions" style="width: 100%;">
+					</div>
+				</section>
+				<section>
+					<img src="i/lattice-length.svg" alt="Lattice Length Metric">
+					<p>Lattice length metric</p>
+				</section>
+				<section>
+					<img src="i/balancing.svg" alt="Tropical Balancing Condition" style="width: 60%;">
+					<p>
+						Tropical balancing condition
+						\[
+							\sum \omega_e \vec{v}_e = \vec0
+						\]
+					</p>
+				</section>
+			</section>
+			<section data-background-color="#A7C">
+				<h2>Part II:</h2>
+				<p>Multiplicities</p>
+			</section>
+			<section style="font-size: 90%;">
+				<h3>Arithmetic in the shadows</h3>
+				<p>
+					$\K = \{0 = \{0_K\}, 1 = \{\text{non-zero elts.}\}\}$
+					<br> (Krasner hyperfield)
+				</p>
+				<p>
+					Hypersums represent all possible sums among equivalence classes.
+				</p>
+				<p class="fragment eg">E.g. zero + non-zero = non-zero \[0 \boxplus 1 = 1\]</p>
+				<p class="fragment eg">E.g. non-zero + non-zero = zero or non-zero \[1 \boxplus 1 = \{0, 1\}\]</p>
+			</section>
+			<section>
+				<p class="eg">
+					E.g. $f(x) = x^2 + x^4 + x^5 \in \K[x]$ represents a polynomial with non-zero $2, 4, 5$-th coefficients.
+					\[ \mult_1 f = 5 - 2 = 3. \]
+				</p>
+				<p class="fragment">
+					\[
+						\begin{align*}
+							f(x) &\in (x + 1)(x^2 + x^3 + x^4), \\
+							(x^2 + x^3 + x^4) &\in (x + 1)(x^2 + x^3), \\
+							(x^2 + x^3) &= (x + 1)x^2.
+						\end{align*}
+					\]
+				</p>
+			</section>
+			<section data-background-color="#FA9">
+				<section>
+					<h2>
+						Hyperfield Multiplicity
+					</h2>
+					<p class="eg" style="background-color: #FE9;">
+						\[
+							\begin{align*}
+								\mult_l^H(\varnothing) &= 0 \\
+								\mult_l^H(\cF) &= 1 + \mult_l^H(\cF : l)
+							\end{align*}
+						\]
+					</p>
+					For $\cF \subset H[x]$ of bounded degree.
+				</section>
+				<section>
+					<p>
+						\[
+							(\cF : l) = \{ g \in H[x] : f \in l \cdot g, \text{ for some } f \in \cF \}
+						\]
+					</p>
+				</section>
+			</section>
+			<section>
+				<p>
+					Arithmetic of signs
+					\[ \S = \{0, 1, -1\} \]
+				</p>
+				<p class="eg">
+					E.g. positive + negative = any sign
+					\[ 1 \boxplus (-1) = \S \]
+				</p>
+				<p class="fragment">
+					$\mult^\S_1(f) = $ number of sign changes in the coefficients: $a_0, a_1, a_2, \dots$
+				</p>
+			</section>
+			<section>
+				<p>
+					Tropical hyperfield (min/plus arithmetic) \[\T = \R \cup \{\infty\}\]
+				</p>
+				<p class="eg">
+					\[
+						x_1 \boxplus \dots \boxplus x_n =
+						\begin{cases}
+							x_0 & \text{unique min.} \\
+							[x_0, \infty] & \text{else}
+						\end{cases}
+					\]
+					$x_0 = \min\{x_1, \dots, x_n\}$
+				</p>
+			</section>
+			<section style="font-size: 70%;">
+				<h3>Geometric Multiplicities</h3>
+				<img src="i/trop-cycles.svg" alt="Addition of tropical cycles" style="width: 50%;">
+				<p>
+					\[
+						w(a) = \min\{w_1(a_1) + w_2(a_2) : a_1 + a_2 = a\}.
+					\]
+				</p>
+			</section>
+			<section>
+				<img src="i/univariate-cycle.svg" alt="Every univariate cycle is a sum of degree 1 cycles" style="width: 60%">
+				<p>
+					In one variable: always a sum of degree-$1$ cycles.
+				</p>
+			</section>
+			<section data-background-color="#D9F">
+				<section>
+					<h3>Enriched Multiplicities</h3>
+					<img src="i/enriched-univariate.svg" alt="Sign-enriched univariate cycle" style="width: 50%">
+						<div class="theorem" style="border: 3px solid white;">
+						<p>G (for univariate polynomials)</p>
+						<p>
+							\[ \mult^{H \rtimes \Gamma}_l f = \mult^H_{\In_w l} \In_w f. \]
+						</p>
+					</div>
+				</section>
+				<section>
+					<p>
+						\[ \mult^{H \rtimes \Gamma}_l f \le \mult^H_{\In_w l} \In_w f. \]
+					</p>
+					<p>
+						Because if $f \in l \cdot g$ then $\In_w f \in \In_w l \cdot \In_w g$.
+					</p>
+					<br>
+					<p class="fragment">
+						Hard part: <br> Factorizations of $\In_w f \implies$ factorizations of $f$.
+						<br> (Only works if $f$ is a product of linear factors.)
+					</p>
+				</section>
+			</section>
+			<section style="font-size: 80%;">
+				<H3>Other multiplicities (Gross-G)</H3>
+				<div class="eg">
+					<p>Relative multiplicity
+						\[ \mult^{\varphi : K \to H}_l \cF = \mult^K_{\varphi^{-1}\{l\}} \varphi^{-1} \cF. \]
+					</p>
+				</div>
+				<div class="fragment eg">
+					<p>Boundary Multiplicity
+						\[ \bmult^H_l \cF = \min_i \left. \mult^H_l \cF \right|_{x_i \gets 0}. \]
+					</p>
+				</div>
+				<div class="fragment eg">
+					<p>Geometric Multiplicity
+						\[
+							\gmult^{H \rtimes \R}_l f = \max\left\{
+								a : V(f) = W + aV(l),\; \supp(W) \ge 0
+							\right\}.
+						\]
+					</p>
+				</div>
+			</section>
+			<section>
+				<p style="font-size: 60%;">
+					Perturbation multiplicity: mixed subdivisions $\implies$ factorizations
+				</p>
+				<img src="i/pmult-example.svg" alt="Perturbation multiplicity example" style="width: 60%;">
+			</section>
+			<section data-background-color="#A7C">
+				<h2>
+					Systems of Equations
+				</h2>
+			</section>
+			<section>
+				<section>
+					<ul>
+						<li>Square homogeneous system $f_1 = \cdots = f_n = 0$</li>
+						<li>$V = V(f_1, \dots, f_n)$</li>
+						<li>$l = u_0x_0 + \cdots + u_nx_n$</li>
+					</ul>
+					<div class="theorem">
+						<p>Mixed Sparse Resultant</p>
+						<p>
+							For a dimension $0$ system, there exists a unique-up-to-monomial-factor polynomial $R = R(l, f_1, \dots, f_n)$ such that
+							\[
+								R \propto \prod_{[a_0 \; : \; \cdots \; : \; a_n] \in V} (a_0u_0 + \dots + a_nu_n).
+							\]
+						</p>
+					</div>
+				</section>
+				<section>
+					<ul>
+						<li>$A_0, \dots, A_n \subset \Z^n$ finite sets</li>
+						<li>coefficient variables $c_{i,a}$ for $a \in A_i$</li>
+						<li>$f_i = \sum c_{i,a} x^a$</li>
+						<li>$\mathcal{V} = V(f_0, \dots, f_n) \cap (K^*)^n$</li>
+					</ul>
+					<div class="theorem">
+						<p>Mixed Sparse Resultant</p>
+						<p>
+							There exists a unique-up-to-monomial-factor polynomial $R = R(A_0, \dots, R_n)$ in the variables $c_{i,a}$ which vanishes iff $\mathcal{V}$ is non-empty.
+							<br>
+							By dimension counting, we expect this holds on a codimension $1$ set since we have $n + 1$ equations $f_0, \dots, f_n$ in $n + 1$ homogeneous variables $x_0, \dots, x_n$.
+						</p>
+					</div>
+				</section>
+			</section>
+			<section>
+				<iframe src="sage/resultant-example.html" width="900px" height="600px"></iframe>
+			</section>
+			<section>
+				<img src="i/resultant-signs.svg" alt="Intersection of the unit circle with various lines" style="width: 100%;">
+				<p>
+					Signs of $R$ are not determined by those of $f_i$.
+				</p>
+			</section>
+			<section>
+				<section>
+					<div class="theorem">
+						<p>Itenberg-Roy</p>
+						<p>Fix:</p>
+						<ul>
+							<li>Newton polytopes $\Delta_1, \dots, \Delta_n$</li>
+							<li>signs $s_i : \Delta_i \to \S$</li>
+						</ul>
+						<p>
+							There exist polynomials $f_1, \dots, f_n$ with those supports and signs having exactly $N((\Delta_i, s_i))$ positive common roots.
+						</p>
+					</div>
+					<p class="r-fit-text">
+						$N((\Delta_i, s_i))$ is some combinatorial quantity and the theorem is proved via patchworking.
+					</p>
+				</section>
+				<section style="font-size: 60%;">
+					<p>
+						For each mixed cell:
+					</p>
+					<img src="i/IR-mixed-cell.svg" alt="Mixed cell of (0,0,-)--(1,1,+) and (0,1,+)--(2,0,+)" style="width: 70%">
+					<p>
+						Let $A$ be the matrix containing the above vectors as rows (mod $2$).
+						\[
+							A =
+							\begin{pmatrix}
+								1 & 1 \\
+								0 & 1
+							\end{pmatrix}
+						\]
+					</p>
+					<p>
+						Add a $0$ if the signs differ and a $1$ if they are the same.
+						\[
+							\hat A =
+							\begin{pmatrix}
+								1 & 1 & \textcolor{purple}1 \\
+								0 & 1 & \textcolor{purple}0
+							\end{pmatrix}
+						\]
+					</p>
+					<p>
+						If $\operatorname{rank} A = \operatorname{rank} \hat A$, add $2^{\operatorname{corank} A}$ to $N$.
+					</p>
+				</section>
+			</section>
+			<section>
+				<div class="theorem">
+					<p>Gross-G</p>
+					<p>Can prove I-R using resultants/signed tropical hypersurfaces.</p>
+				</div>
+			</section>
+			<section>
+				<div class="theorem">
+					<p>Li-Wang</p>
+					<p>
+						The I-R lower bound is not sharp.
+					</p>
+					<p>
+						For a particular $(3,3)$ curve and a line, I-R's formula gives $N = 2$ but there is an example where there are $3$ positive roots.
+					</p>
+				</div>
+				<div class="theorem fragment">
+					<p>Gross-G</p>
+					<p>
+						In the Li-Wang example, $\bmult R = 3$.
+					</p>
+				</div>
+			</section>
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/math/math.js"></script>
+	<script src="plugin/zoom/zoom.js"></script>
+	<script>
+		Reveal.initialize({
+			hash: true,
+			// slideNumber: "c/t",
+			plugins: [ RevealMath.KaTeX, RevealZoom ],
+			katex: {
+				macros: {
+					"\\X": "\\mathfrak{X}",
+					"\\O": "\\mathcal{O}",
+					"\\C": "\\mathbf{C}",
+					"\\F": "\\mathbf{F}",
+					"\\K": "\\mathbf{K}",
+					"\\P": "\\mathbf{P}",
+					"\\R": "\\mathbf{R}",
+					"\\S": "\\mathbf{S}",
+					"\\T": "\\mathbf{T}",
+					"\\Z": "\\mathbf{Z}",
+					"\\supp": "\\operatorname{supp}",
+					"\\mult": "\\operatorname{mult}",
+					"\\gmult": "\\operatorname{gmult}",
+					"\\bmult": "\\operatorname{\\partial-mult}",
+					"\\In": "\\operatorname{in}",
+					"\\cF": "\\mathcal{F}"
+				}
+			},
+			keyboard: { // for use with remote
+				34: 'right',
+				190: 'next',
+				79: 'toggleOverview'
+			}
+		});
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--- SageMath -->
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+<script>
+sagecell.makeSagecell({
+    "inputLocation": ".sage",
+    "languages": ["singular"],
+    "linked": true
+});
+</script>
+<style>
+.sage {
+    font-size: 200%;
+}
+button.sagecell_fullScreen {
+    visibility: hidden;
+}
+.ui-widget {
+    font-size: initial !important;
+}
+</style>
+</head>
+
+<body>
+<div class="sage">
+<script type="text/x-sage">
+system("random", 12341234);
+ring R = 0,(u,v),dp;
+ring S = R,(x,y),dp;
+ideal I = 3x + 4y - 5, x2 + y2 - 1, 1 + ux + vy;
+det(mpresmat(I, 0));
+</script>
+</div>
+<br>
+<div class="sage">
+<script type="text/x-sage">
+setring R;
+factorize(9u2+24uv+16v2+30u+40v+25);
+</script>
+</div>
+</body>
+</html>
