@@ -31,57 +31,23 @@
 				<h2>Part I:</h2>
 				<p>Divisors on Metric Graphs</p>
 			</section>
-			<section data-background-iframe="https://www.desmos.com/calculator/kp6cznq5fr" data-background-interactive
-				data-preload></section>
 			<section data-auto-animate>
 				<p>Divisors, line bundles, linear systems, etc. are connected to projective embeddings.</p>
-				<p>E.g. $\P^1 \xrightarrow{\O(3)} \P^3$</p>
+				<p>E.g. $\P^1 \xrightarrow{\O(3)} \P^3$ \[[x:y] \mapsto [x^3 : x^2y : xy^2 : y^3]\]</p>
 				<div>
 					<img src="i/twisted-cubic.png" alt="Twisted Cubic" style="width: 30%">
 				</div>
 			</section>
 			<section data-auto-animate>
 				<p>Divisors, line bundles, linear systems, etc. are connected to projective embeddings.</p>
-				<p>E.g. $\P^1 \xrightarrow{\O(3)} \P^3$</p>
+				<p>E.g. $\P^1 \xrightarrow{\O(3)} \P^3$ \[[x:y] \mapsto [x^3 : x^2y : xy^2 : y^3]\]</p>
 				<div>
 					<img src="i/twisted-cubic.png" alt="Twisted Cubic" style="width: 30%">
 					<p style="float: right;">Can embed graphs in $\R^3$ <br> putting vertices on the TC</p>
 				</div>
 			</section>
-			<section>
-				<img src="i/genus-1-graph.svg" alt="Genus 1 Graph">
-				<p>A genus 1 metric graph</p>
-			</section>
 			<section data-auto-animate>
-				<img src="i/berkovich.svg" alt="Berkovich space">
-				<p>Berkovich projective line</p>
-			</section>
-			<section data-auto-animate style="font-size: 70%;">
-				<img src="i/berkovich.svg" alt="Berkovich space" style="width: 25%">
-				<p>
-					Points in $\P^{1,\mathrm{an}}$ are:
-				<ol>
-					<li>$|f|_x = |f(x)|$ for some $x \in \P^1$</li>
-					<li class="fragment" data-fragment-index="1">$|f|_{x,r} = \sup\limits_{|y - x| \le r} |f|_y$ for
-						rational $r$</li>
-					<li class="fragment" data-fragment-index="1">$|f|_{x,r} = \sup\limits_{|y - x| \le r} |f|_y$ for
-						irrational $r$</li>
-					<li class="fragment" data-fragment-index="2">limits of closed discs</li>
-				</ol>
-				</p>
-			</section>
-			<section>
-				<img src="i/ss-model.svg" alt="Semistable Model">
-				<p class="fragment">
-					Components of $\X(\F_p)$ give valuations on $\X$
-				</p>
-			</section>
-			<section>
-				<p>Dual graph of $\X(\F_p)$ <br> with <b>no leaf edges</b> <br> is called the <i>minimal skeleton</i>
-				</p>
-				<img src="i/minimal-skeleton.svg" alt="Minimal Skeleton of a Tate Curve">
-			</section>
-			<section data-auto-animate>
+				<p style="font-size: 60%;">$p^3 + px - 2py - 3px^2 + 2xy + py^2 - 2p^3x^3 + px^2y + pxy^2 - p^3y^3 \in \Q_p[x,y]$</p>
 				<img src="i/degree-3-newton-polygon.svg" alt="Degree 3 Newton Polygon" style="margin-right: 1em;">
 				<img src="i/tropical-elliptic.svg" alt="Tropical Elliptic Curve">
 				<p>Newton polytope/complex <br> and associated tropical curve</p>
@@ -90,50 +56,70 @@
 				<section data-auto-animate>
 					<img src="i/genus-1-graph.svg" alt="Degree 3 Newton Polygon" style="margin-right: 1em;">
 					<img src="i/tropical-elliptic.svg" alt="Tropical Elliptic Curve">
-					<p>Piecewise-linear coordinate functions on skeleta <br> give divisors</p>
+					<p>The metric graph associated to a tropicalization is called a <b>skeleton</b></p>
 				</section>
 				<section>
-					<p>
-						If $f$ is a meromorphic function on $\X^{\mathrm{an}}$ then
-						\[
-							(x, |\cdot|) \mapsto \log |f(x)|
-						\]
-						is a piecewise linear function.
-					</p>
-				</section>
-			</section>
-			<section data-auto-animate>
-				<div class="theorem" data-id="main-box">
-					<p>Baker-Rabinoff</p>
-					<p data-id="statement">There exist coordinate functions which lift, such that the resulting tropiclization is an
-						isometry on the minimal skeleton.</p>
-					<img src="i/BR-coordinates.svg" alt="Baker-Rabinoff coordinate functions" style="width: 50%;">
-				</div>
-			</section>
-			<section>
-				<section data-auto-animate>
-					<div class="theorem">
-						<p>Baker-Rabinoff</p>
-						<img src="i/BR-coordinates.svg" alt="Baker-Rabinoff coordinate functions" style="width: 50%;">
-					</div>
-					<div class="theorem" data-id="main-box">
-						<p>G-Jell</p>
-						<p data-id="statement">There exist coordinate functions which lift, such that the resulting tropiclization is an
-							isometry on the <b>extended</b> skeleton.</p>
-						<img src="i/GJ-coordinates.svg" alt="Baker-Rabinoff coordinate functions" style="width: 100%;">
-					</div>
-				</section>
-				<section>
-					<img src="i/lattice-length.svg" alt="Lattice Length Metric">
+					<img src="i/lattice-length.svg" alt="Lattice Length Metric" style="width: 30%;">
 					<p>Lattice length metric</p>
-				</section>
-				<section>
-					<img src="i/balancing.svg" alt="Tropical Balancing Condition" style="width: 60%;">
+					<img src="i/balancing.svg" alt="Tropical Balancing Condition" style="width: 30%;">
 					<p>
 						Tropical balancing condition
 						\[
 							\sum \omega_e \vec{v}_e = \vec0
 						\]
+					</p>
+				</section>
+			</section>
+			<section data-auto-animate>
+				<img src="i/genus-1-graph.svg" alt="Degree 3 Newton Polygon" style="margin-right: 1em;">
+				<img src="i/minimal-skeleton.svg" alt="minimal-skeleton">
+				<p>Can also contract leaf vertices to obtain other skeleta</p>
+			</section>
+			<section data-auto-animate>
+				<h3>Going backwards</h3>
+				<img src="i/minimal-skeleton.svg" alt="minimal-skeleton" style="margin-right: 1em; width: 30%;">
+				<img src="i/trop-skeleton.svg" alt="tropical hexagon" style="width: 30%;">
+				<img src="i/Fx.svg">
+			</section>
+			<section data-transition="slide-in fade-out">
+				<div class="theorem" data-id="main-box">
+					<p>Baker-Rabinoff</p>
+					<p data-id="statement">There exist coordinate functions, which lift, such that the resulting tropicalization is an
+						isometry (tropical weights are $1$) on a <b>fixed</b> skeleton.</p>
+					<img src="i/BR-coordinates.svg" alt="Baker-Rabinoff coordinate functions" style="width: 50%;">
+
+				</div>
+			</section>
+			<section data-transition="fade">
+				<section>
+					<div class="theorem">
+						<p>Baker-Rabinoff</p>
+						<p><b>Fixed</b> skeleton&mdash;rays have positive weights</p>
+						<img src="i/BR-coordinates.svg" alt="Baker-Rabinoff coordinate functions" style="width: 50%;">
+					</div>
+					<div class="theorem" data-id="main-box">
+						<p>G-Jell</p>
+						<p data-id="statement">There exist coordinate functions, which lift, such that the resulting tropicalization is an
+							isometry on the <b>extended</b> skeleton (considering all the rays).</p>
+						<!-- <img src="i/GJ-coordinates.svg" alt="Gunn-Jell coordinate functions" style="width: 100%;"> -->
+					</div>
+				</section>
+				<section data-auto-animate>
+					<img src="i/ss-model.svg" alt="Semistable Model">
+					<p class="fragment">
+						Components of $\X_{\F_p}$ give valuations on $\X$
+					</p>
+				</section>
+				<section data-auto-animate style="font-size: 75%;">
+					<img src="i/ss-model.svg" alt="Semistable Model" style="margin-right: 1em;">
+					<img src="i/minimal-skeleton.svg" style="width: 30%;">
+					<p>Dual graph of $\X_{\F_p}$ is a skeleton</p>
+					<p class="fragment">
+						If $f$ is a meromorphic function on $\X^{\mathrm{an}}$ then
+						\[
+							(x, |\cdot|) \mapsto \log |f(x)|
+						\]
+						is a piecewise linear function.
 					</p>
 				</section>
 			</section>
@@ -424,6 +410,7 @@
 					"\\F": "\\mathbf{F}",
 					"\\K": "\\mathbf{K}",
 					"\\P": "\\mathbf{P}",
+					"\\Q": "\\mathbf{Q}",
 					"\\R": "\\mathbf{R}",
 					"\\S": "\\mathbf{S}",
 					"\\T": "\\mathbf{T}",
