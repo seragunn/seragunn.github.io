@@ -81,6 +81,12 @@
 				<img src="i/trop-skeleton.svg" alt="tropical hexagon" style="width: 30%;">
 				<img src="i/Fx.svg">
 			</section>
+			<section data-auto-animate>
+				<h3>Going backwards</h3>
+				<img src="i/trop-skeleton.svg" alt="tropical hexagon" style="margin-right: 1em; width: 30%;">
+				<img src="i/trop-with-rays.svg" alt="tropical hexagon with rays" style="width: 30%;">
+				<img src="i/Fx.svg">
+			</section>
 			<section data-transition="slide-in fade-out">
 				<div class="theorem" data-id="main-box">
 					<p>Baker-Rabinoff</p>
@@ -90,7 +96,7 @@
 
 				</div>
 			</section>
-			<section data-transition="fade">
+			<section data-transition="fade-in slide-out">
 				<section>
 					<div class="theorem">
 						<p>Baker-Rabinoff</p>
@@ -127,92 +133,116 @@
 				<h2>Part II:</h2>
 				<p>Multiplicities</p>
 			</section>
-			<section style="font-size: 90%;">
-				<h3>Arithmetic in the shadows</h3>
-				<p>
-					$\K = \{0 = \{0_K\}, 1 = \{\text{non-zero elts.}\}\}$
-					<br> (Krasner hyperfield)
-				</p>
-				<p>
-					Hypersums represent all possible sums among equivalence classes.
-				</p>
-				<p class="fragment eg">E.g. zero + non-zero = non-zero \[0 \boxplus 1 = 1\]</p>
-				<p class="fragment eg">E.g. non-zero + non-zero = zero or non-zero \[1 \boxplus 1 = \{0, 1\}\]</p>
+			<section data-transition="slide-in fade-out">
+				<h3>Tropical multiplicities</h3>
+				<img src="i/univariate-cycle.svg" alt="Every univariate cycle is a sum of degree 1 cycles" style="width: 50%">
+				<div class="theorem">
+					<p>Newton, Baker-Lorscheid, G</p>
+					<p style="text-align: center;">
+						# of roots with valuation $\gamma$ equals
+						<br> the width of the edge of slope $-\gamma$
+					</p>
+				</div>
+			</section>
+			<section data-transition="fade-in slide-out">
+				<h3>Enriched Multiplicities</h3>
+				<img src="i/enriched-univariate.svg" alt="Sign-enriched univariate cycle" style="width: 50%">
+				<div class="theorem">
+					<p>G (Combining Newton and Descartes)</p>
+					<p style="text-align: center;">
+						# of pos. roots with valuation $\gamma$ equals
+						<br> the number of sign changes in the edge of slope $-\gamma$
+					</p>
+				</div>
 			</section>
 			<section>
-				<p class="eg">
-					E.g. $f(x) = x^2 + x^4 + x^5 \in \K[x]$ represents a polynomial with non-zero $2, 4, 5$-th coefficients.
-					\[ \mult_1 f = 5 - 2 = 3. \]
+				<h3>Descartes' Rule</h3>
+				<img src="i/quintic.svg" alt="Quintic: y = 1 - 3x - 2x^2 + x^5">
+				<p>
+					\[ y = 1 - 3x - 2x^2 + x^5 \]
 				</p>
-				<p class="fragment">
-					\[
-						\begin{align*}
-							f(x) &\in (x + 1)(x^2 + x^3 + x^4), \\
-							(x^2 + x^3 + x^4) &\in (x + 1)(x^2 + x^3), \\
-							(x^2 + x^3) &= (x + 1)x^2.
-						\end{align*}
-					\]
+				<p>
+					\[ +, -, -, \textcolor{#CCC}0, \textcolor{#CCC}0, +	\]
 				</p>
 			</section>
-			<section data-background-color="#FA9">
-				<section>
-					<h2>
-						Hyperfield Multiplicity
-					</h2>
-					<p class="eg" style="background-color: #FE9;">
-						\[
-							\begin{align*}
-								\mult_l^H(\varnothing) &= 0 \\
-								\mult_l^H(\cF) &= 1 + \mult_l^H(\cF : l)
-							\end{align*}
-						\]
-					</p>
-					For $\cF \subset H[x]$ of bounded degree.
-				</section>
-				<section>
+			<section>
+				<h3>Multivariate Descartes Problem</h3>
+				<div class="eg">
+					<ul>
+						<li>Given a system of equations $f_1 = \dots = f_n = 0$,</li>
+						<li>with just information about the signs of the coefficients,</li>
+						<li>what can we say about the signs of $V(f_1,\dots,f_n)$?</li>
+					</ul>
+				</div>
+				<br>
+				<div class="eg fragment">
+					<ul>
+						<li>Lower bound on # of positive roots by Itenberg-Roy using patchworking</li>
+						<li>Their lower bound is not sharp (example by Li-Wang)</li>
+					</ul>
+				</div>
+			</section>
+			<section>
+				<h3>Arithmetic in the Shadows</h3>
+				<p>
+					\[ y = 1 - 3x - 2x^2 + x^5 \]
+				</p>
+				<p>
+					\[ +, -, -, \textcolor{#CCC}0, \textcolor{#CCC}0, +	\]
+				</p>
+				<div class="fragment">
 					<p>
-						\[
-							(\cF : l) = \{ g \in H[x] : f \in l \cdot g, \text{ for some } f \in \cF \}
-						\]
+						\[ \begin{aligned}
+						       (1 - x)(1 &- x - x^2 - x^3 - x^4) \\
+							   = 1 &- x - x^2 - x^3 - x^4 \\
+								   &- x + x^2 + x^3 + x^4 + x^5 \\
+							   \ni 1 &-x - x^2 \hspace{1.54cm} +x^5
+						   \end {aligned} \]
 					</p>
-				</section>
+				</div>
+			</section>
+			<section data-transition="slide-in fade-out">
+				<h4>Baker-Lorscheid Multiplicities</h4>
+				<img src="i/enriched-univariate.svg" alt="Sign-enriched univariate cycle" style="width: 30%">
+				<div class="theorem" style="font-size: 65%;">
+					<p>Descartes</p>
+					<p>Number of sign changes (combinatorial)</p>
+				</div>
+				<div class="theorem" style="font-size: 65%;">
+					<p>Baker-Lorscheid</p>
+					<p>
+						Maximum number of times one can factor out $(x - 1)$ using <b>sign arithmetic</b>
+					</p>
+				</div>
+			</section>
+			<section data-transition="fade-in slide-out">
+				<h4>Baker-Lorscheid Multiplicities</h4>
+				<img src="i/univariate-cycle.svg" alt="Every univariate cycle is a sum of degree 1 cycles" style="width: 30%">
+				<div class="theorem" style="font-size: 65%;">
+					<p>Newton</p>
+					<p>Width of the edge with slope $-\gamma$ (combinatorial)</p>
+				</div>
+				<div class="theorem" style="font-size: 60%;">
+					<p>Baker-Lorscheid</p>
+					<p>
+						Maximum number of times one can factor out $(x + \gamma)$ using <b>tropical arithmetic</b>
+					</p>
+				</div>
 			</section>
 			<section>
-				<p>
-					Arithmetic of signs
-					\[ \S = \{0, 1, -1\} \]
-				</p>
+				<h4>Tropical Hyperfield (min/plus arithmetic)</h4>
 				<p class="eg">
-					E.g. positive + negative = any sign
-					\[ 1 \boxplus (-1) = \S \]
-				</p>
-				<p class="fragment">
-					$\mult^\S_1(f) = $ number of sign changes in the coefficients: $a_0, a_1, a_2, \dots$
-				</p>
-			</section>
-			<section>
-				<p>
-					Tropical hyperfield (min/plus arithmetic) \[\T = \R \cup \{\infty\}\]
-				</p>
-				<p class="eg">
+					\[\T = \R \cup \{\infty\}\]
+					\[ x \cdot_\T y = x +_\R y \quad \text{(mult. is add.)} \]
 					\[
-						x_1 \boxplus \dots \boxplus x_n =
-						\begin{cases}
-							x_0 & \text{unique min.} \\
-							[x_0, \infty] & \text{else}
-						\end{cases}
+						x_0 \in x_1 \boxplus \dots \boxplus x_n \iff \min\{x_0,\dots,x_n\} \text{ occurs twice}
 					\]
-					$x_0 = \min\{x_1, \dots, x_n\}$
 				</p>
 			</section>
 			<section style="font-size: 70%;">
-				<h3>Geometric Multiplicities</h3>
+				<h3>Multivariate Multiplicities</h3>
 				<img src="i/trop-cycles.svg" alt="Addition of tropical cycles" style="width: 50%;">
-				<p>
-					\[
-						w(a) = \min\{w_1(a_1) + w_2(a_2) : a_1 + a_2 = a\}.
-					\]
-				</p>
+				<p>Geometric multiplicities (number of copies of a line in a tropical cycle)</p>
 			</section>
 			<section>
 				<img src="i/univariate-cycle.svg" alt="Every univariate cycle is a sum of degree 1 cycles" style="width: 60%">
