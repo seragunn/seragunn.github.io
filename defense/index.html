@@ -167,19 +167,21 @@
 			</section>
 			<section>
 				<h3>Multivariate Descartes Problem</h3>
-				<div class="eg">
+				<div class="eg" style="margin-bottom: 1em;">
 					<ul>
 						<li>Given a system of equations $f_1 = \dots = f_n = 0$,</li>
 						<li>with just information about the signs of the coefficients,</li>
 						<li>what can we say about the signs of $V(f_1,\dots,f_n)$?</li>
 					</ul>
 				</div>
-				<br>
-				<div class="eg fragment">
+				<div class="eg fragment" style="margin-bottom: 1em;">
 					<ul>
-						<li>Lower bound on # of positive roots by Itenberg-Roy using patchworking</li>
+						<li>Lower bound on # of positive roots by Itenberg-Roy using patchworking (combinatorial)</li>
 						<li>Their lower bound is not sharp (example by Li-Wang)</li>
 					</ul>
+				</div>
+				<div class="eg fragment">
+					Goal: <b>algebraic</b> mulitiplicity that explains these
 				</div>
 			</section>
 			<section>
@@ -239,186 +241,104 @@
 					\]
 				</p>
 			</section>
-			<section style="font-size: 70%;">
-				<h3>Multivariate Multiplicities</h3>
-				<img src="i/trop-cycles.svg" alt="Addition of tropical cycles" style="width: 50%;">
-				<p>Geometric multiplicities (number of copies of a line in a tropical cycle)</p>
+			<section style="font-size: 70%;" data-background-color="#FCD">
+				<h3>Geometric Multiplicities</h3>
+				<img src="i/trop-cycles.svg" alt="Addition of tropical cycles" style="width: 45%;">
+				<p>Number of copies of a line in a tropical cycle</p>
+				<p>(Can be adapted to include signs)</p>
 			</section>
 			<section>
-				<img src="i/univariate-cycle.svg" alt="Every univariate cycle is a sum of degree 1 cycles" style="width: 60%">
-				<p>
-					In one variable: always a sum of degree-$1$ cycles.
-				</p>
-			</section>
-			<section data-background-color="#D9F">
-				<section>
-					<h3>Enriched Multiplicities</h3>
-					<img src="i/enriched-univariate.svg" alt="Sign-enriched univariate cycle" style="width: 50%">
-						<div class="theorem" style="border: 3px solid white;">
-						<p>G (for univariate polynomials)</p>
-						<p>
-							\[ \mult^{H \rtimes \Gamma}_l f = \mult^H_{\In_w l} \In_w f. \]
-						</p>
-					</div>
-				</section>
-				<section>
-					<p>
-						\[ \mult^{H \rtimes \Gamma}_l f \le \mult^H_{\In_w l} \In_w f. \]
-					</p>
-					<p>
-						Because if $f \in l \cdot g$ then $\In_w f \in \In_w l \cdot \In_w g$.
-					</p>
-					<br>
-					<p class="fragment">
-						Hard part: <br> Factorizations of $\In_w f \implies$ factorizations of $f$.
-						<br> (Only works if $f$ is a product of linear factors.)
-					</p>
-				</section>
-			</section>
-			<section style="font-size: 80%;">
-				<H3>Other multiplicities (Gross-G)</H3>
-				<div class="eg">
-					<p>Relative multiplicity
-						\[ \mult^{\varphi : K \to H}_l \cF = \mult^K_{\varphi^{-1}\{l\}} \varphi^{-1} \cF. \]
-					</p>
-				</div>
-				<div class="fragment eg">
-					<p>Boundary Multiplicity
-						\[ \bmult^H_l \cF = \min_i \left. \mult^H_l \cF \right|_{x_i \gets 0}. \]
-					</p>
-				</div>
-				<div class="fragment eg">
-					<p>Geometric Multiplicity
-						\[
-							\gmult^{H \rtimes \R}_l f = \max\left\{
-								a : V(f) = W + aV(l),\; \supp(W) \ge 0
-							\right\}.
-						\]
-					</p>
-				</div>
-			</section>
-			<section>
-				<p style="font-size: 60%;">
-					Perturbation multiplicity: mixed subdivisions $\implies$ factorizations
+				<p style="font-size: 80%;">
+					If a subdivision isn't given, we can impose one
 				</p>
 				<img src="i/pmult-example.svg" alt="Perturbation multiplicity example" style="width: 60%;">
 			</section>
-			<section data-background-color="#A7C">
+			<section>
+				<h3>Boundary Multiplicity</h3>
+				<img src="i/boundary-mult.svg" alt="Boundary multiplicity example" style="width: 80%;">
+				<p>
+					\[ \bmult = \min_i \mult|_{x_i = 0} \]
+				</p>
+			</section>
+			<section data-background-color="#7AC">
 				<h2>
 					Systems of Equations
 				</h2>
+				<p>(Putting it all together)</p>
 			</section>
-			<section>
-				<section>
-					<ul>
-						<li>Square homogeneous system $f_1 = \cdots = f_n = 0$</li>
-						<li>$V = V(f_1, \dots, f_n)$</li>
-						<li>$l = u_0x_0 + \cdots + u_nx_n$</li>
-					</ul>
-					<div class="theorem">
-						<p>Mixed Sparse Resultant</p>
-						<p>
-							For a dimension $0$ system, there exists a unique-up-to-monomial-factor polynomial $R = R(l, f_1, \dots, f_n)$ such that
-							\[
-								R \propto \prod_{[a_0 \; : \; \cdots \; : \; a_n] \in V} (a_0u_0 + \dots + a_nu_n).
-							\]
-						</p>
-					</div>
-				</section>
-				<section>
-					<ul>
-						<li>$A_0, \dots, A_n \subset \Z^n$ finite sets</li>
-						<li>coefficient variables $c_{i,a}$ for $a \in A_i$</li>
-						<li>$f_i = \sum c_{i,a} x^a$</li>
-						<li>$\mathcal{V} = V(f_0, \dots, f_n) \cap (K^*)^n$</li>
-					</ul>
-					<div class="theorem">
-						<p>Mixed Sparse Resultant</p>
-						<p>
-							There exists a unique-up-to-monomial-factor polynomial $R = R(A_0, \dots, R_n)$ in the variables $c_{i,a}$ which vanishes iff $\mathcal{V}$ is non-empty.
-							<br>
-							By dimension counting, we expect this holds on a codimension $1$ set since we have $n + 1$ equations $f_0, \dots, f_n$ in $n + 1$ homogeneous variables $x_0, \dots, x_n$.
-						</p>
-					</div>
-				</section>
+			<section data-auto-animate>
+				<div class="theorem">
+					<p>Li-Wang</p>
+					<p>$a, b, r, s, t > 0$</p>
+					<p>
+						\[
+							\begin{cases}
+								f\coloneqq 1+ax-bx = 0\\
+								g\coloneqq 1+rx^3-sy^3-tx^3y^3=0
+							\end{cases}
+						\]
+					</p>
+					<p>Has $3$ positive roots for some choice of coefficients</p>
+					<p>Itenberg-Roy predict $2$</p>
+				</div>
 			</section>
-			<section>
-				<iframe src="sage/resultant-example.html" width="900px" height="600px"></iframe>
-			</section>
-			<section>
-				<img src="i/resultant-signs.svg" alt="Intersection of the unit circle with various lines" style="width: 100%;">
+			<section data-auto-animate>
 				<p>
-					Signs of $R$ are not determined by those of $f_i$.
+					\[
+						\begin{cases}
+							f\coloneqq 1+ax-bx = 0\\
+							g\coloneqq 1+rx^3-sy^3-tx^3y^3=0
+						\end{cases}
+					\]
+				</p>
+				<p>Mixed sparse resultant:
+					\[ R \propto \prod_{p \in V(f,g)} (p_1 u + p_2 v + p_3 w) \]
+				</p>
+				<pre><code data-trim>
+					ring R = (0,(u,v,a,b,r,s,t)),(x,y),dp;
+					ideal I = 1+ux+vy, 1+ax-by, 1+rx3-sy3-tx3y3;
+					det(mpresmat(I,0));
+				</code></pre>
+			</section>
+			<section data-auto-animate style="font-size: 70%;">
+				<p>
+					\[
+						\begin{cases}
+							f\coloneqq 1+ax-bx = 0\\
+							g\coloneqq 1+rx^3-sy^3-tx^3y^3=0
+						\end{cases}
+					\]
+				</p>
+				<p>Mixed sparse resultant:
+					\[ R \propto \prod_{p \in V(f,g)} (p_1 u + p_2 v + p_3 w) \]
+				</p>
+				<img src="i/LW-resultant.svg" alt="Signed resultant in LW example" style="width: 30%;">
+			</section>
+			<section data-auto-animate>
+				<img src="i/LW-resultant.svg" alt="Signed resultant in LW example" style="width: 40%;">
+				<p>\[\downarrow\]</p>
+				<img src="i/LW-boundary.svg" alt="Signed resultant in LW example" style="width: 40%;">
+			</section>
+			<section data-auto-animate>
+				<img src="i/LW-boundary.svg" alt="Signed resultant in LW example" style="width: 40%;">
+				<p>
+					\[ \bmult R \le 3 \]
 				</p>
 			</section>
 			<section>
-				<section>
-					<div class="theorem">
-						<p>Itenberg-Roy</p>
-						<p>Fix:</p>
-						<ul>
-							<li>Newton polytopes $\Delta_1, \dots, \Delta_n$</li>
-							<li>signs $s_i : \Delta_i \to \S$</li>
-						</ul>
-						<p>
-							There exist polynomials $f_1, \dots, f_n$ with those supports and signs having exactly $N((\Delta_i, s_i))$ positive common roots.
-						</p>
-					</div>
-					<p class="r-fit-text">
-						$N((\Delta_i, s_i))$ is some combinatorial quantity and the theorem is proved via patchworking.
-					</p>
-				</section>
-				<section style="font-size: 60%;">
-					<p>
-						For each mixed cell:
-					</p>
-					<img src="i/IR-mixed-cell.svg" alt="Mixed cell of (0,0,-)--(1,1,+) and (0,1,+)--(2,0,+)" style="width: 70%">
-					<p>
-						Let $A$ be the matrix containing the above vectors as rows (mod $2$).
-						\[
-							A =
-							\begin{pmatrix}
-								1 & 1 \\
-								0 & 1
-							\end{pmatrix}
-						\]
-					</p>
-					<p>
-						Add a $0$ if the signs differ and a $1$ if they are the same.
-						\[
-							\hat A =
-							\begin{pmatrix}
-								1 & 1 & \textcolor{purple}1 \\
-								0 & 1 & \textcolor{purple}0
-							\end{pmatrix}
-						\]
-					</p>
-					<p>
-						If $\operatorname{rank} A = \operatorname{rank} \hat A$, add $2^{\operatorname{corank} A}$ to $N$.
-					</p>
-				</section>
-			</section>
-			<section>
+				<h3>Other Highlights</h3>
 				<div class="theorem">
-					<p>Gross-G</p>
-					<p>Can prove I-R using resultants/signed tropical hypersurfaces.</p>
+					<p>G</p>
+					<p>For univariate polys, $\mult f = \mult(\In f)$</p>
 				</div>
-			</section>
-			<section>
-				<div class="theorem">
-					<p>Li-Wang</p>
-					<p>
-						The I-R lower bound is not sharp.
-					</p>
-					<p>
-						For a particular $(3,3)$ curve and a line, I-R's formula gives $N = 2$ but there is an example where there are $3$ positive roots.
-					</p>
+				<div class="theorem fragment">
+					<p>G</p>
+					<p>$\sum \mult f \le \deg f$ for <b>stringent</b> hyperfields <br>
+						meaning: $a \boxplus b = \{c\}$ if $0 \notin a \boxplus b$</p>
 				</div>
 				<div class="theorem fragment">
 					<p>Gross-G</p>
-					<p>
-						In the Li-Wang example, $\bmult R = 3$.
-					</p>
+					<p>New proof of Itenberg-Roy's lower bound using resultants</p>
 				</div>
 			</section>
 		</div>
