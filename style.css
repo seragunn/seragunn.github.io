@@ -134,7 +134,7 @@ a.person:hover {
 	#main, .section {
 		width: 40em;
 	}
-	.contact {
+	#contact {
 		float: right;
 	}
 	h1 {
