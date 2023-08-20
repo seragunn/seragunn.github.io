@@ -11,9 +11,33 @@
 
 body {
 	background: #EEE;
+	font-family: 'Noto Sans', sans-serif;
+}
+
+header {
+	background: #222;
+	margin-bottom: 1em;
+	text-align: center;
+}
+
+.links {
+	padding-bottom: 1em;
+}
+
+.links a {
+	font-size: 1.25em;
+	font-weight: 400;
+	color: #EEE;
+	padding-inline: 1em;
+}
+
+.links a:hover {
+	color: #999;
+}
+
+#main {
 	margin: auto;
 	padding: 0em 1em;
-	font-family: 'Noto Sans', sans-serif;
 }
 
 .section {
@@ -25,6 +49,7 @@ h1 {
 	font-family: 'Pacifico', serif;
 	font-size: 2.4em;
 	padding: 0.8em 0em 0.4em;
+	color: #ff0080;
 }
 
 h2 {
@@ -102,7 +127,7 @@ a.person:hover {
 }
 
 @media (min-width: 45em) {
-	body, .section {
+	#main, .section {
 		width: 40em;
 	}
 	.contact {
@@ -114,7 +139,7 @@ a.person:hover {
 }
 
 @media (min-width: 68em) {
-	body {
+	#main {
 		width: 63em;
 	}
 	.photo {
