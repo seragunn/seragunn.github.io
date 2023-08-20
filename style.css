@@ -137,16 +137,3 @@ a.person:hover {
 		font-size: 3em;
 	}
 }
-
-@media (min-width: 68em) {
-	#main {
-		width: 63em;
-	}
-	.photo {
-		float: right;
-		margin-top: 3em;
-	}
-	.contact {
-		float: none;
-	}
-}
