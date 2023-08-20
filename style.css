@@ -20,18 +20,18 @@ header {
 	text-align: center;
 }
 
-.links {
+#links {
 	padding-bottom: 1em;
 }
 
-.links a {
+#links a {
 	font-size: 1.25em;
 	font-weight: 400;
 	color: #EEE;
 	padding-inline: 1em;
 }
 
-.links a:hover {
+#links a:hover {
 	color: #999;
 }
 
