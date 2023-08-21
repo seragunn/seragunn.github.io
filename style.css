@@ -21,12 +21,11 @@ header {
 }
 
 #links {
+	font-weight: bold;
 	padding-bottom: 1em;
 }
 
 #links a {
-	font-size: 1.25em;
-	font-weight: bold;
 	color: #EEE;
 	padding-inline: 1em;
 }
@@ -38,6 +37,16 @@ header {
 #main {
 	margin: auto;
 	padding: 0em 1em;
+}
+
+#photo {
+	text-align: center;
+	margin-top: 1.5em;
+}
+
+#contact {
+	text-align: left;
+	padding-top: 1em;
 }
 
 .section {
@@ -136,8 +145,12 @@ a.person:hover {
 	}
 	#contact {
 		float: right;
+		padding-top: 0em;
 	}
 	h1 {
 		font-size: 3em;
+	}
+	#links {
+		font-size: 1.25em;
 	}
 }
