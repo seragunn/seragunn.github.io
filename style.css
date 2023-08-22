@@ -96,6 +96,10 @@ figure {
 	margin: 1em;
 }
 
+figcaption {
+	font-style: italic;
+}
+
 ul {
 	list-style-type: square;
 	padding-top: 0.4em;
