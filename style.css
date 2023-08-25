@@ -35,18 +35,20 @@ nav a:hover {
 }
 
 main {
+	position: relative;
 	margin: auto;
 	padding: 0em 1em;
 }
 
-#photo {
+aside {
+	margin: auto;
 	text-align: center;
 	margin-top: 1.5em;
 }
 
 #contact {
 	text-align: left;
-	padding-top: 1em;
+	padding: 1em 1em 0em;
 }
 
 section {
@@ -160,7 +162,7 @@ a.person:hover {
 }
 
 @media (min-width: 45em) {
-	main, section {
+	main, aside {
 		width: 40em;
 	}
 	#contact {

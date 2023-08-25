@@ -7,17 +7,14 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="icon" type="image/svg+xml" href="icon.svg">
 	<style>
-		@media (min-width: 68em) {
+		@media (min-width: 70em) {
 			main {
-				width: 63em;
+				right: 10em;
 			}
-			#photo {
-				float: right;
-				margin-top: 0.5em;
-			}
-			#contact {
-				float: none;
-				padding-top: 1em;
+			aside {
+				width: min-content;
+				position: absolute;
+				left: calc(50% + 12em);
 			}
 		}
 	</style>
@@ -35,9 +32,7 @@
 	</nav>
 </header>
 
-<main>
-
-<aside id="photo">
+<aside>
 	<img src="picture.jpg" style="width: 20em; border-radius: 20pt" alt="Portrait photo of myself">
 	<div id="contact">
 		<h2>Contact/Social</h2>
@@ -65,6 +60,8 @@
 		</ul>
 	</div>
 </aside>
+
+<main>
 
 <section>
 	<h2>About me</h2>
