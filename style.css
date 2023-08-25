@@ -123,7 +123,7 @@ ol {
 a {
 	text-decoration: none;
 	font-weight: bold;
-	color: #0080ff;
+	color: #06C;
 }
 
 a:hover {
@@ -131,7 +131,7 @@ a:hover {
 }
 
 a.paperurl {
-	color: #ff0080;
+	color: #C07;
 }
 
 a.paperurl:hover {
@@ -139,7 +139,7 @@ a.paperurl:hover {
 }
 
 a.person {
-	color: #8000ff;
+	color: #60D;
 }
 
 a.person:hover {
