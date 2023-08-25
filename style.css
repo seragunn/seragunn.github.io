@@ -84,6 +84,16 @@ p {
 	hyphens: auto;
 }
 
+dt {
+	font-weight: bold;
+	margin-top: 0.5em;
+}
+
+dd {
+	margin-left: 1em;
+	margin-top: 0.25em;
+}
+
 address {
 	font-style: normal;
 	font-family: monospace;
