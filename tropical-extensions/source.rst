@@ -7,7 +7,7 @@ Tropical Extensions and Baker-Lorscheid Multiplicities
 .. image:: qrcode.svg
     :width: 400px
 
-Trevor Gunn
+Sera Gunn
 
 November, 2022
 
