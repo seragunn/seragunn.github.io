@@ -178,3 +178,15 @@ a.person:hover {
         font-size: 1.25em;
     }
 }
+
+@media (min-width: 70em) {
+    main {
+        right: 10em;
+    }
+
+    aside {
+        width: min-content;
+        position: absolute;
+        left: calc(50% + 12em);
+    }
+}
