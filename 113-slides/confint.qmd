@@ -1,0 +1,221 @@
+---
+title: Confidence Intervals
+author: Sera Gunn
+date: today
+format:
+  live-revealjs:
+    theme: beige
+---
+
+## z-score
+z-score for $x \sim \mathsf{Normal}(\mu, \sigma)$
+$$
+z = \frac{x - \mu}{\sigma}
+$$
+
+## z-score for means
+z-score for $\frac{x_1 + \dots + x_n}{n}$ where $x_i \sim \mathsf{Normal}(\mu, \sigma)$
+$$
+z = \frac{\bar x - \mu}{\sigma / \sqrt{n}}
+$$
+
+## Unknown standard deviation
+t-score for $\frac{x_1 + \dots + x_n}{n}$ where $\sigma$ is unknown
+$$
+t = \frac{\bar x - \mu}{s / \sqrt{n}}
+$$
+
+## Example calculation
+```{webr}
+data <- c(56, 61, 64, 69, 73, 74, 75, 76, 79, 81, 87, 94)
+
+xbar <- mean(data)
+s    <- sd(data)
+n    <- 12
+
+# Guess that mu = 75
+tscore <- (xbar - 75) / (s / sqrt(n))
+
+# How likely is it?
+pt(tscore, df=n - 1)
+```
+
+## Reviewing the $\pm 2$ threshold
+* Previously, we said that a z-score was unusual if $z > 2$ or $z < -2$
+* This *roughly* was because $\mathrm{P}(z < -2 \text{ or } z > 2) = 5\%$
+* But more accurately, the threshold is $\pm 1.96$
+
+```{webr}
+# P(z < -2) + P(z > 2) is about 4.55%
+pnorm(-2) + pnorm(2, lower.tail=FALSE)
+
+# But with 1.96 it is 5%
+pnorm(-1.96) + pnorm(1.96, lower.tail=FALSE)
+```
+
+## Where does 1.96 come from?
+* If $\mathrm{P}(z < -1.96) + \mathrm{P}(z > 1.96) = 5\%$
+* and the normal distribution is symmetric
+* then $\mathrm{P}(z < -1.96) = 2.5\%$ and $\mathrm{P}(z > 1.96) = 2.5\%$
+
+```{webr}
+# Use qnorm to solve P(z < ??) = 2.5%
+qnorm(0.025)
+
+qnorm(1 - 0.025)
+```
+
+## Confidence intervals
+* For what $\mu$ is $-1.96 < z < 1.96$?
+* Rearrange $-1.96 < \dfrac{\bar x - \mu}{\sigma / \sqrt n} < 1.96$ to get
+
+$$
+\bar x - 1.96 \frac{\sigma}{\sqrt n} < \mu < \bar x + 1.96 \frac{\sigma}{\sqrt n}
+$$
+
+* If $\mu$ is in this range, our z-score is "usual" and if $\mu$ is outside, our z-score is "unusual"
+
+## Streamlined notation
+* Let $E = 1.96 \frac{\sigma}{\sqrt n}$
+* $95\%-\mathrm{CI} = \bar x \pm E$
+
+```{webr}
+data <- c(56, 61, 64, 69, 73, 74, 75, 76, 79, 81, 87, 94)
+
+xbar <- mean(data)
+s    <- sd(data)
+n    <- 12
+
+E <- 1.96 * s / sqrt(n)
+
+c(xbar - E, xbar + E)
+```
+
+## {background-iframe="https://www.desmos.com/calculator/e09ccy9oil" background-interactive=true}
+
+## T-dist confidence intervals
+* t-distribution depends on n so we can't just memorize one value like "1.96"
+* Instead, we use `qt` to calculate the equivalent value
+
+```{webr}
+qt(0.025, df=11)
+```
+
+::: {.fragment}
+$$
+\mathrm{CI} = \bar x \pm 2.2 \frac{s}{\sqrt{12}}
+$$
+:::
+
+## Proportions
+
+If our data is binomial (e.g. $n = 1000$ trials, $x = 200$ successes), we had a normal approximation
+
+$$
+z = \frac{x - np}{\sqrt{npq}}
+$$
+
+::: {.fragment}
+Divide by $n$:
+
+$$
+z = \frac{\frac{x}{n} - \frac{np}{n}}{\sqrt{npq} / \sqrt{n^2}} = \frac{\hat{p} - p}{\sqrt{\hat p \hat q/n}}
+$$
+:::
+
+## Example
+
+* If $n = 1000$, $x = 200$, then $\hat p = 200/1000 = 0.2$ and $\hat q = 0.8$
+* So with $\alpha = 0.05$ (and $1.96$)
+
+$$
+p \text{ is in } \hat p \pm 1.96 \sqrt{\frac{\hat p \hat q}{n}} =  0.2 \pm 1.96 \sqrt{\frac{0.2 \cdot 0.8}{1000}}
+$$
+
+```{webr}
+E <- 1.96 * sqrt(0.2 * 0.8 / 1000)
+phat <- 0.2
+
+c(phat - E, phat + E)
+```
+
+## Exact interval
+
+We modele the likelihood
+$$
+\mathrm{P}(x = 200 \mid p) = 200C1000 \cdot p^{200}(1 - p)^{800}
+$$
+as a function of $p$
+
+This function in terms of $p$ is called a *beta distribution* and we got a "credible interval"
+
+```{webr}
+qbeta(0.025, 200.5, 800.5)
+qbeta(0.975, 200.5, 800.5)
+```
+
+## Finding $n$ given $E$
+
+* In our last example, our interval was something like $0.2 \pm 0.025$ or $20\% \pm 2.5\%$
+* If we want it to be $\pm 1\%$ instead, we use the formula
+
+$$
+n = \frac{\mathtt{qnorm}(0.975) \cdot \hat p \hat q}{E^2} = \frac{1.96^2 \cdot 0.2 \cdot 0.8}{0.01^2} = 6147
+$$
+(round up)
+
+```{webr}
+1.96^2 * 0.2 * 0.8 / 0.01^2
+```
+
+## If $\hat p$ is unknown
+::: {.callout-tip}
+If $\hat p$ is unknown, use $0.5$, so $\hat p \hat q = 0.5 \cdot 0.5 = 0.25$
+:::
+```{webr}
+1.96^2 * 0.25 / 0.01^2
+```
+
+## Intro to hypothesis testing
+Going back to our $z$ and $t$ scores
+
+$$
+z = \frac{\bar x - \mu}{\sigma / \sqrt n}, \qquad t = \frac{\bar x - \mu}{s / \sqrt n}
+$$
+
+We can ask a different question.
+
+* Confidence intervals: what values of $\mu$ give a "usual" z or t score?
+* Hypothesis testing: how likely is the z or t score for a given $\mu$?
+
+## Example
+If $n = 1000, x = 200$ and $p = 0.25$ then
+
+$$
+z = \frac{\hat p - p}{\sqrt{\hat p \hat q / n}} = \frac{0.2 - 0.25}{\sqrt{0.2 \cdot 0.8 / 1000}}
+$$
+
+```{webr}
+n <- 1000
+x <- 200
+p <- 0.25
+
+phat <- x / n
+qhat <- 1 - phat
+
+(phat - p) / sqrt(phat * qhat / n)
+```
+
+## Quantifying unlikeliness
+
+For a given $z$ or $t$ score, we use the $\mathtt{pnorm}$ and $\mathtt{pt}$ functions respectively to quantify unlikeliness
+
+$P(z < - 3.95) = \mathtt{pnorm}(-3.95)$
+
+```{webr}
+pnorm(-3.95)
+
+options(scipen = 999) # disable `e-05` notation
+
+pnorm(-3.95)
+```
