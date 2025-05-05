@@ -1,0 +1,205 @@
+---
+title: Hypothesis Testing
+author: Sera Gunn
+date: today
+format:
+  live-revealjs:
+    theme: beige
+---
+
+## For proportions
+
+Test statistic
+\begin{align*}
+z &= \frac{\hat p - p}{\sqrt{\hat p \hat q / n}} \\
+&\overset{\text{e.g.}}{=} \frac{0.4 - 0.5}{\sqrt{0.4 \cdot 0.6 / 80}} \\
+&\overset{\text{e.g.}}{=} -1.83 \\
+\end{align*}
+
+## Threshold
+$$ q = \mathtt{qnorm}(1 - \alpha) $$
+(or $1 - \alpha/2$ for two-sided)
+
+```{webr}
+qnorm(0.95)
+qnorm(0.975)
+```
+
+## Testing
+
+* Unusually high: is $z > 1.645$?
+* Unusually low: is $z < -1.645$?
+* Unusual: is $z < -1.96$ or $z > 1.96$
+    * (use the $1 - \alpha/2$ number)
+
+### Example
+
+* $z = -1.83$ is unusually low (at the $0.05$ level)
+* $z = -1.83$ is not unusual (two-sided)
+
+## P-value
+* $P(Z \le z) = \mathtt{pnorm}(z)$ (unusually low)
+* $P(Z \ge z) = 1 - \mathtt{pnorm}(z)$ (unusually high)
+* $2P(Z \le z) = 2\mathtt{pnorm}(z)$ (unusual---use the negative value)
+
+```{webr}
+pnorm(-1.83)
+2 * pnorm(-1.83)
+```
+
+## Hypothesis testing of means
+
+Replace $z$ score with
+$$
+t = \frac{\bar x - \mu}{s / \sqrt n}
+$$
+and `qnorm`/`pnorm` with `qt`/`pt` (using $n - 1$ dof)
+
+E.g. $\bar x = 135, s = 15, n = 40$ testing $\mu > 130$
+
+```{webr}
+t <- (135 - 130) / (15 / sqrt(40))
+1 - pt(t, df=39)
+```
+
+## binom.test
+
+Using the $\hat p = 0.4$, $n = 80$, $H_1 : p < 0.5$ example from the beginning (i.e. $32/80$ successes)
+
+```{webr}
+binom.test(32, 80, 0.5, alternative="less", method="normal")
+```
+
+## Input
+
+`binom.test(x, n, p, alternative="...")`
+
+* $x =$ number of successes
+* $n =$ number of trials
+* $p =$ hypothesized probability
+* alternative is one of "less", "greater", or "two.sided"
+
+## Output
+
+```{}
+Exact binomial test
+
+data:  32 and 80
+number of successes = 32, number of trials = 80, p-value = 0.04646
+alternative hypothesis: true probability of success is less than 0.5
+95 percent confidence interval:
+ 0.0000000 0.4980225
+sample estimates:
+probability of success 
+                   0.4 
+```
+
+* Exact test
+* $p$-value
+* confidence interval for the true proportion
+
+## t.test
+
+E.g. we have data on blood pressures and we want to test $H_1: \mu > 130$
+
+```{webr}
+xs <- c(113, 119, 119, 121, 123, 123, 125, 125, 125, 127, 127, 127, 127, 127,
+127, 129, 129, 129, 131, 131, 131, 131, 133, 133, 133, 133, 133, 133, 133, 135,
+135, 135, 135, 135, 135, 137, 137, 137, 137, 139, 139, 139, 141, 141, 141, 141,
+143, 143, 143, 143, 145, 145)
+
+t.test(xs, mu=130, alternative="greater")
+```
+
+# Two sample testing
+
+## Context
+
+Rather than asking if one group has high blood pressure, suppose we have two
+drugs or maybe a before and after group.
+
+Now the question is: is the mean with
+the first drug better than with the second drug (at a certain level of
+significance).
+
+## An example formula
+
+Suppose we want to test whether the mean on one drug is at least $\delta = 5$ more than
+the mean on another drug. I.e. $H_0 : \mu_1 - \mu_2 = 5$ versus $H_1 : \mu_1 -
+\mu_2 > 5$.
+
+The t-score that gets calculated here is
+$$
+t = \frac{(\bar x_1 - \bar x_2) - \delta}{\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}},
+$$
+
+##
+...and instead of $n - 1$ degrees of freedom, it has
+$$
+\mathrm{df} = \frac{\left(\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}\right)^2}{\frac{s_1^4}{n_1^2(n_1 - 1)} + \frac{s_2^4}{n_2^2(n_2 - 1)^2}}
+$$
+(rounded) degrees of freedom.
+
+::: {.fragment style="text-align:center; font-size:300%"}
+Yikes
+:::
+
+## We have the technology
+
+With two data sets, we can do `t.test(data1, data2, ...)`
+
+E.g. is a math department's calculus 2 exam harder than the calculus 1 exam? Specifically is $\mu_1 > \mu_2$?
+
+```{webr}
+calc1 <- c(55, 55, 57, 59, 62, 63, 64, 64, 65, 65, 66, 66, 66, 67, 67, 68, 68, 68, 68, 68, 68, 68, 68, 69, 69, 69, 69, 69, 69, 69, 70, 70, 70, 71, 71, 71, 71, 71, 71, 72, 72, 72, 72, 72, 72, 72, 72, 72, 73, 73, 73, 73, 73, 73, 73, 74, 74, 74, 74, 74, 74, 75, 75, 75, 75, 75, 75, 75, 75, 75, 76, 76, 76, 76, 76, 76, 76, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 78, 78, 78, 79, 79, 79, 79, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 81, 81, 81, 81, 81, 81, 81, 81, 82, 82, 82, 82, 82, 82, 82, 82, 82, 83, 83, 83, 83, 83, 83, 84, 84, 84, 84, 84, 84, 84, 84, 84, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 86, 86, 86, 86, 86, 86, 86, 87, 87, 87, 87, 87, 88, 88, 88, 88, 88, 89, 89, 89, 89, 90, 90, 90, 90, 90, 90, 91, 91, 92, 92, 92, 93, 93, 93, 93, 93, 93, 94, 94, 95, 95, 96, 97, 98, 98, 99, 100, 100, 103)
+calc2 <- c(41, 43, 50, 51, 52, 53, 55, 56, 56, 56, 57, 57, 58, 59, 59, 60, 60, 60, 61, 61, 61, 62, 63, 63, 63, 64, 64, 64, 64, 64, 64, 64, 65, 65, 65, 66, 67, 67, 67, 67, 68, 68, 68, 68, 69, 69, 69, 69, 69, 69, 69, 69, 70, 70, 70, 70, 70, 70, 70, 71, 71, 71, 71, 72, 72, 72, 72, 73, 73, 73, 73, 73, 74, 74, 74, 74, 74, 74, 74, 74, 75, 75, 75, 75, 75, 76, 76, 76, 76, 76, 76, 76, 76, 76, 76, 76, 76, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 77, 78, 78, 78, 78, 78, 78, 78, 78, 78, 79, 79, 79, 79, 79, 79, 79, 79, 80, 80, 80, 80, 81, 81, 81, 81, 81, 81, 82, 82, 82, 82, 82, 82, 82, 82, 82, 83, 83, 83, 83, 83, 83, 84, 84, 84, 84, 84, 84, 85, 85, 85, 85, 85, 85, 85, 85, 85, 86, 86, 86, 86, 86, 87, 87, 87, 87, 87, 87, 88, 88, 88, 88, 88, 89, 89, 90, 90, 90, 90, 90, 91, 91, 93, 93, 95, 96, 97, 98, 99, 100, 104, 113)
+
+t.test(calc1, calc2, alternative="greater")
+```
+
+## Using prop.test
+
+Suppose we run an experiment and receive the following data. We want to test if the new success rate is bigger: $H_1 : p_1 < p_2$
+
+| Drug | Number who improve | Number who did not | N   |
+|------|--------------------|--------------------|-----|
+| old  | 56                 | 31                 | 87  |
+| new  | 67                 | 27                 | 94  |
+
+```{webr}
+prop.test(x=c(56, 67), n=c(87, 94), alternative="less")
+```
+
+## Note
+
+* `binom.test` is exact (for one sample)
+* `prop.test` uses the normal approximation (for one or two samples)
+* `fisher.test` is exact for two samples but is a little clunkier to use
+
+```{webr}
+m <- matrix(c(56, 31, 67, 27), 2)
+fisher.test(m, alternative="less")
+```
+
+## Paired or Unpaired
+
+Sometimes we want to test whether one mean was higher than another. Other times we want to test person-by-person if they performed better in calculus 1 than in calculus 2.
+
+* Unpaired: $H_1 : \mu_1 > \mu_2$
+* Paired: $H_1 : \mu_d > 0$ where $\mu_d$ is the average difference in performance
+
+Pairing in some sense converts back to a single data set but of the differences.
+
+```{webr}
+t.test(calc1, calc2, alternative="greater", paired=TRUE)
+```
+
+## Summary
+
+* R has several functions for doing hypothesis testing (`t.test`, `binom.test`, `prop.test`)
+* Specify alternative depending on whether we are testing less, greater, or two-sided
+* These functions calculate a p-value
+    * check if it's less that $0.05$ (or whatever $\alpha$ was specified)
+* They also provide a confidence interval for the true mean or true proportion
+* Data is paired when we are comparing person-by-person performance/success
+* Data is unpaired when we are comparing the mean of group 1 vs the mean of group 2 (or proportion)
