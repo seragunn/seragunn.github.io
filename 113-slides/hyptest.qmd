@@ -13,7 +13,7 @@ Test statistic
 \begin{align*}
 z &= \frac{\hat p - p}{\sqrt{\hat p \hat q / n}} \\
 &\overset{\text{e.g.}}{=} \frac{0.4 - 0.5}{\sqrt{0.4 \cdot 0.6 / 80}} \\
-&\overset{\text{e.g.}}{=} -1.83 \\
+&\overset{\text{e.g.}}{=} -1.83
 \end{align*}
 
 ## Threshold
