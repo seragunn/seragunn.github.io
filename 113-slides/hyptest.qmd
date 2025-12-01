@@ -9,20 +9,22 @@ format:
 
 ## For proportions
 
+E.g. in $n = 80$ coin flips, $40\%$ are heads
+
 Test statistic
 \begin{align*}
-z &= \frac{\hat p - p}{\sqrt{\hat p \hat q / n}} \\
-&\overset{\text{e.g.}}{=} \frac{0.4 - 0.5}{\sqrt{0.4 \cdot 0.6 / 80}} \\
-&\overset{\text{e.g.}}{=} -1.83
+z &= \frac{\hat p - p}{\sqrt{pq / n}} \\
+&\overset{\text{e.g.}}{=} \frac{0.4 - 0.5}{\sqrt{0.5 \cdot 0.5 / 80}} \\
+&\overset{\text{e.g.}}{=} -1.79
 \end{align*}
 
 ## Threshold
-$$ q = \mathtt{qnorm}(1 - \alpha) $$
-(or $1 - \alpha/2$ for two-sided)
+$$ q = \mathtt{qnorm}(\alpha) $$
+(or $\alpha/2$ for two-sided, "bounds" in Desmos)
 
 ```{webr}
-qnorm(0.95)
-qnorm(0.975)
+qnorm(0.05)
+qnorm(0.05/2)
 ```
 
 ## Testing
@@ -32,19 +34,22 @@ qnorm(0.975)
 * Unusual: is $z < -1.96$ or $z > 1.96$
     * (use the $1 - \alpha/2$ number)
 
+::: {.callout-note}
+Compare z-scores to thresholds, compare p-values to $\alpha$.
+:::
+
 ### Example
 
-* $z = -1.83$ is unusually low (at the $0.05$ level)
-* $z = -1.83$ is not unusual (two-sided)
+* $z = -1.79$ is unusually low (at the $0.05$ level)
+* $z = -1.79$ is not unusual (two-sided)
 
 ## P-value
-* $P(Z \le z) = \mathtt{pnorm}(z)$ (unusually low)
-* $P(Z \ge z) = 1 - \mathtt{pnorm}(z)$ (unusually high)
-* $2P(Z \le z) = 2\mathtt{pnorm}(z)$ (unusual---use the negative value)
+* One sided: $\mathtt{pnorm}(z)$ using a negative number for $z$
+* Two sided: $2\mathtt{pnorm}(z)$ using a negative number for $z$
 
 ```{webr}
-pnorm(-1.83)
-2 * pnorm(-1.83)
+pnorm(-1.79)
+2 * pnorm(-1.79)
 ```
 
 ## Hypothesis testing of means
@@ -59,7 +64,7 @@ E.g. $\bar x = 135, s = 15, n = 40$ testing $\mu > 130$
 
 ```{webr}
 t <- (135 - 130) / (15 / sqrt(40))
-1 - pt(t, df=39)
+pt(-t, df=39)
 ```
 
 ## binom.test
@@ -67,7 +72,7 @@ t <- (135 - 130) / (15 / sqrt(40))
 Using the $\hat p = 0.4$, $n = 80$, $H_1 : p < 0.5$ example from the beginning (i.e. $32/80$ successes)
 
 ```{webr}
-binom.test(32, 80, 0.5, alternative="less", method="normal")
+binom.test(32, 80, 0.5, alternative="less")
 ```
 
 ## Input
@@ -130,13 +135,15 @@ the mean on another drug. I.e. $H_0 : \mu_1 - \mu_2 = 5$ versus $H_1 : \mu_1 -
 
 The t-score that gets calculated here is
 $$
-t = \frac{(\bar x_1 - \bar x_2) - \delta}{\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}},
+t = \frac{(\bar x_1 - \bar x_2) - 5}{\sqrt{\frac{s_1^2}{n_1^2} + \frac{s_2^2}{n_2}}},
 $$
+
+...but usually we just test if the difference is $> 0$.
 
 ##
 ...and instead of $n - 1$ degrees of freedom, it has
 $$
-\mathrm{df} = \frac{\left(\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}\right)^2}{\frac{s_1^4}{n_1^2(n_1 - 1)} + \frac{s_2^4}{n_2^2(n_2 - 1)^2}}
+\mathrm{df} = \frac{\left(\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}\right)^2}{\frac{s_1^4}{n_1^2(n_1 - 1)^2} + \frac{s_2^4}{n_2^2(n_2 - 1)^2}}
 $$
 (rounded) degrees of freedom.
 

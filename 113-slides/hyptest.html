@@ -6,13 +6,13 @@
 <script src="hyptest_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="hyptest_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="hyptest_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="hyptest_files/libs/quarto-html/quarto-syntax-highlighting-443ac161e34e8c1eedb78f958e3d9213.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="hyptest_files/libs/quarto-html/quarto-syntax-highlighting-cdaacfc258cb6f151192107f105ac881.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="hyptest_files/libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
 <link href="hyptest_files/libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.1">
+  <meta name="generator" content="quarto-1.9.12">
 
   <meta name="author" content="Sera Gunn">
-  <meta name="dcterms.date" content="2025-05-05">
+  <meta name="dcterms.date" content="2025-12-01">
   <title>Hypothesis Testing</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -32,7 +32,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="hyptest_files/libs/revealjs/dist/theme/quarto-340d960e8755bbda5148eb2f88c02f59.css">
+  <link rel="stylesheet" href="hyptest_files/libs/revealjs/dist/theme/quarto-59eea25f73ac4d198524cdbd146509bf.css">
   <link href="hyptest_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="hyptest_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="hyptest_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -142,25 +142,26 @@ Sera Gunn
 </div>
 </div>
 
-  <p class="date">2025-05-05</p>
+  <p class="date">2025-12-01</p>
 </section>
 <section id="for-proportions" class="slide level2">
 <h2>For proportions</h2>
+<p>E.g. in <span class="math inline">\(n = 80\)</span> coin flips, <span class="math inline">\(40\%\)</span> are heads</p>
 <p>Test statistic <span class="math display">\[\begin{align*}
-z &amp;= \frac{\hat p - p}{\sqrt{\hat p \hat q / n}} \\
-&amp;\overset{\text{e.g.}}{=} \frac{0.4 - 0.5}{\sqrt{0.4 \cdot 0.6 / 80}} \\
-&amp;\overset{\text{e.g.}}{=} -1.83
+z &amp;= \frac{\hat p - p}{\sqrt{pq / n}} \\
+&amp;\overset{\text{e.g.}}{=} \frac{0.4 - 0.5}{\sqrt{0.5 \cdot 0.5 / 80}} \\
+&amp;\overset{\text{e.g.}}{=} -1.79
 \end{align*}\]</span></p>
 </section>
 <section id="threshold" class="slide level2">
 <h2>Threshold</h2>
-<p><span class="math display">\[ q = \mathtt{qnorm}(1 - \alpha) \]</span> (or <span class="math inline">\(1 - \alpha/2\)</span> for two-sided)</p>
+<p><span class="math display">\[ q = \mathtt{qnorm}(\alpha) \]</span> (or <span class="math inline">\(\alpha/2\)</span> for two-sided, “bounds” in Desmos)</p>
 <div>
 <div id="webr-1" class="exercise-cell">
 
 </div>
 <script type="webr-1-contents">
-eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoicW5vcm0oMC45NSlcbnFub3JtKDAuOTc1KSJ9
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoicW5vcm0oMC4wNSlcbnFub3JtKDAuMDUvMikifQ==
 </script>
 </div>
 </section>
@@ -174,25 +175,37 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoicW5vcm0oMC45NSlcbnFub3Jt
 <li>(use the <span class="math inline">\(1 - \alpha/2\)</span> number)</li>
 </ul></li>
 </ul>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>Compare z-scores to thresholds, compare p-values to <span class="math inline">\(\alpha\)</span>.</p>
+</div>
+</div>
+</div>
 <h3 id="example">Example</h3>
 <ul>
-<li><span class="math inline">\(z = -1.83\)</span> is unusually low (at the <span class="math inline">\(0.05\)</span> level)</li>
-<li><span class="math inline">\(z = -1.83\)</span> is not unusual (two-sided)</li>
+<li><span class="math inline">\(z = -1.79\)</span> is unusually low (at the <span class="math inline">\(0.05\)</span> level)</li>
+<li><span class="math inline">\(z = -1.79\)</span> is not unusual (two-sided)</li>
 </ul>
 </section>
 <section id="p-value" class="slide level2">
 <h2>P-value</h2>
 <ul>
-<li><span class="math inline">\(P(Z \le z) = \mathtt{pnorm}(z)\)</span> (unusually low)</li>
-<li><span class="math inline">\(P(Z \ge z) = 1 - \mathtt{pnorm}(z)\)</span> (unusually high)</li>
-<li><span class="math inline">\(2P(Z \le z) = 2\mathtt{pnorm}(z)\)</span> (unusual—use the negative value)</li>
+<li>One sided: <span class="math inline">\(\mathtt{pnorm}(z)\)</span> using a negative number for <span class="math inline">\(z\)</span></li>
+<li>Two sided: <span class="math inline">\(2\mathtt{pnorm}(z)\)</span> using a negative number for <span class="math inline">\(z\)</span></li>
 </ul>
 <div>
 <div id="webr-2" class="exercise-cell">
 
 </div>
 <script type="webr-2-contents">
-eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoicG5vcm0oLTEuODMpXG4yICogcG5vcm0oLTEuODMpIn0=
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoicG5vcm0oLTEuNzkpXG4yICogcG5vcm0oLTEuNzkpIn0=
 </script>
 </div>
 </section>
@@ -207,7 +220,7 @@ t = \frac{\bar x - \mu}{s / \sqrt n}
 
 </div>
 <script type="webr-3-contents">
-eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoidCA8LSAoMTM1IC0gMTMwKSAvICgxNSAvIHNxcnQoNDApKVxuMSAtIHB0KHQsIGRmPTM5KSJ9
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoidCA8LSAoMTM1IC0gMTMwKSAvICgxNSAvIHNxcnQoNDApKVxucHQoLXQsIGRmPTM5KSJ9
 </script>
 </div>
 </section>
@@ -219,7 +232,7 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoidCA8LSAoMTM1IC0gMTMwKSAv
 
 </div>
 <script type="webr-4-contents">
-eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiYmlub20udGVzdCgzMiwgODAsIDAuNSwgYWx0ZXJuYXRpdmU9XCJsZXNzXCIsIG1ldGhvZD1cIm5vcm1hbFwiKSJ9
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiYmlub20udGVzdCgzMiwgODAsIDAuNSwgYWx0ZXJuYXRpdmU9XCJsZXNzXCIpIn0=
 </script>
 </div>
 </section>
@@ -278,13 +291,14 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoieHMgPC0gYygxMTMsIDExOSwg
 <p>Suppose we want to test whether the mean on one drug is at least <span class="math inline">\(\delta = 5\)</span> more than the mean on another drug. I.e. <span class="math inline">\(H_0 : \mu_1 - \mu_2 = 5\)</span> versus <span class="math inline">\(H_1 : \mu_1 -
 \mu_2 &gt; 5\)</span>.</p>
 <p>The t-score that gets calculated here is <span class="math display">\[
-t = \frac{(\bar x_1 - \bar x_2) - \delta}{\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}},
+t = \frac{(\bar x_1 - \bar x_2) - 5}{\sqrt{\frac{s_1^2}{n_1^2} + \frac{s_2^2}{n_2}}},
 \]</span></p>
+<p>…but usually we just test if the difference is <span class="math inline">\(&gt; 0\)</span>.</p>
 </section>
 <section id="section" class="slide level2">
 <h2></h2>
 <p>…and instead of <span class="math inline">\(n - 1\)</span> degrees of freedom, it has <span class="math display">\[
-\mathrm{df} = \frac{\left(\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}\right)^2}{\frac{s_1^4}{n_1^2(n_1 - 1)} + \frac{s_2^4}{n_2^2(n_2 - 1)^2}}
+\mathrm{df} = \frac{\left(\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}\right)^2}{\frac{s_1^4}{n_1^2(n_1 - 1)^2} + \frac{s_2^4}{n_2^2(n_2 - 1)^2}}
 \]</span> (rounded) degrees of freedom.</p>
 <div class="fragment" style="text-align:center; font-size:300%">
 <p>Yikes</p>
@@ -593,7 +607,7 @@ W10=
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -678,13 +692,14 @@ W10=
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy
